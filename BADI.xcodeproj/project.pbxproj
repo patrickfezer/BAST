@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A49E85528B5572A0064361C /* BASTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85428B5572A0064361C /* BASTApp.swift */; };
+		5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */; };
+		5A49E85528B5572A0064361C /* BADIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85428B5572A0064361C /* BADIApp.swift */; };
 		5A49E85728B5572A0064361C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85628B5572A0064361C /* ContentView.swift */; };
 		5A49E85928B5572B0064361C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A49E85828B5572B0064361C /* Assets.xcassets */; };
 		5A49E85C28B5572B0064361C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A49E85B28B5572B0064361C /* Preview Assets.xcassets */; };
+		5A49E86428B557730064361C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E86328B557730064361C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A49E85128B5572A0064361C /* BAST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAST.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A49E85428B5572A0064361C /* BASTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BASTApp.swift; sourceTree = "<group>"; };
+		5A19C8B228B648460029FC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
+		5A49E85128B5572A0064361C /* BADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BADI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A49E85428B5572A0064361C /* BADIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BADIApp.swift; sourceTree = "<group>"; };
 		5A49E85628B5572A0064361C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A49E85828B5572B0064361C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A49E85B28B5572B0064361C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5A49E86328B557730064361C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +40,7 @@
 		5A49E84828B5572A0064361C = {
 			isa = PBXGroup;
 			children = (
-				5A49E85328B5572A0064361C /* BAST */,
+				5A49E85328B5572A0064361C /* BADI */,
 				5A49E85228B5572A0064361C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +48,23 @@
 		5A49E85228B5572A0064361C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A49E85128B5572A0064361C /* BAST.app */,
+				5A49E85128B5572A0064361C /* BADI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A49E85328B5572A0064361C /* BAST */ = {
+		5A49E85328B5572A0064361C /* BADI */ = {
 			isa = PBXGroup;
 			children = (
-				5A49E85428B5572A0064361C /* BASTApp.swift */,
-				5A49E85628B5572A0064361C /* ContentView.swift */,
+				5A19C8B228B648460029FC9C /* Info.plist */,
+				5A49E86C28B558E00064361C /* Views */,
+				5A49E86728B557CC0064361C /* Classes */,
+				5A49E86628B557AC0064361C /* Main */,
+				5A49E86228B5575D0064361C /* Extensions */,
 				5A49E85828B5572B0064361C /* Assets.xcassets */,
 				5A49E85A28B5572B0064361C /* Preview Content */,
 			);
-			path = BAST;
+			path = BADI;
 			sourceTree = "<group>";
 		};
 		5A49E85A28B5572B0064361C /* Preview Content */ = {
@@ -67,12 +75,44 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5A49E86228B5575D0064361C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5A49E86328B557730064361C /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5A49E86628B557AC0064361C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5A49E85428B5572A0064361C /* BADIApp.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5A49E86728B557CC0064361C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5A49E86C28B558E00064361C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A49E85628B5572A0064361C /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A49E85028B5572A0064361C /* BAST */ = {
+		5A49E85028B5572A0064361C /* BADI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A49E85F28B5572B0064361C /* Build configuration list for PBXNativeTarget "BAST" */;
+			buildConfigurationList = 5A49E85F28B5572B0064361C /* Build configuration list for PBXNativeTarget "BADI" */;
 			buildPhases = (
 				5A49E84D28B5572A0064361C /* Sources */,
 				5A49E84E28B5572A0064361C /* Frameworks */,
@@ -82,9 +122,9 @@
 			);
 			dependencies = (
 			);
-			name = BAST;
+			name = BADI;
 			productName = BAST;
-			productReference = 5A49E85128B5572A0064361C /* BAST.app */;
+			productReference = 5A49E85128B5572A0064361C /* BADI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5A49E84C28B5572A0064361C /* Build configuration list for PBXProject "BAST" */;
+			buildConfigurationList = 5A49E84C28B5572A0064361C /* Build configuration list for PBXProject "BADI" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +155,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A49E85028B5572A0064361C /* BAST */,
+				5A49E85028B5572A0064361C /* BADI */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */,
 				5A49E85728B5572A0064361C /* ContentView.swift in Sources */,
-				5A49E85528B5572A0064361C /* BASTApp.swift in Sources */,
+				5A49E86428B557730064361C /* Extensions.swift in Sources */,
+				5A49E85528B5572A0064361C /* BADIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,10 +308,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BADI/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BADI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,10 +338,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BADI/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BADI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A49E84C28B5572A0064361C /* Build configuration list for PBXProject "BAST" */ = {
+		5A49E84C28B5572A0064361C /* Build configuration list for PBXProject "BADI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A49E85D28B5572B0064361C /* Debug */,
@@ -329,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A49E85F28B5572B0064361C /* Build configuration list for PBXNativeTarget "BAST" */ = {
+		5A49E85F28B5572B0064361C /* Build configuration list for PBXNativeTarget "BADI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A49E86028B5572B0064361C /* Debug */,

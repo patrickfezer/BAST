@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showImportView = false
+//    @State private var blockRefresh = false
     @State private var file = Data()
     let bm = BatteryManager()
     
@@ -16,19 +17,23 @@ struct ContentView: View {
         NavigationView {
             List
                 {
-                    Section("Capacity & Cycles") {
-                        bm.batteryKeyAsText(data: file, label: "Current Capacity", key1: .nominalChargeCapacity, key2: nil)
-                        bm.batteryKeyAsText(data: file, label: "Design Capacity", key1: .designCapacity, key2: nil)
-                        bm.batteryKeyAsText(data: file, label: "Max. Capacity", key1: .maxFCC, key2: nil)
-                        bm.batteryKeyAsText(data: file, label: "Min. Capacity", key1: .minFCC, key2: nil)
-                        bm.batteryKeyAsText(data: file, label: "Cycle Count", key1: .cycleCount, key2: nil)
+                    if !showImportView
+                    {
+                        Section("Capacity & Cycles") {
+                            bm.batteryKeyAsText(data: file, label: "Current Capacity", key1: .nominalChargeCapacity, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Design Capacity", key1: .designCapacity, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Max. Capacity", key1: .maxFCC, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Min. Capacity", key1: .minFCC, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Cycle Count", key1: .cycleCount, key2: nil)
+                        }
+                            
+                        Section("Health") {
+                            bm.batteryKeyAsText(data: file, label: "Real Health", key1: .nominalChargeCapacity, key2: .designCapacity)
+                            bm.batteryKeyAsText(data: file, label: "Max. Health", key1: .nominalChargeCapacity, key2: .minFCC)
+                            bm.batteryKeyAsText(data: file, label: "Min. Health", key1: .nominalChargeCapacity, key2: .maxFCC)
+                        }
                     }
-                        
-                    Section("Health") {
-                        bm.batteryKeyAsText(data: file, label: "Real Health", key1: .nominalChargeCapacity, key2: .designCapacity)
-                        bm.batteryKeyAsText(data: file, label: "Max. Health", key1: .nominalChargeCapacity, key2: .minFCC)
-                        bm.batteryKeyAsText(data: file, label: "Min. Health", key1: .nominalChargeCapacity, key2: .maxFCC)
-                    }
+                    
                         
                 }
                 .navigationTitle("Battery Health")

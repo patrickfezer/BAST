@@ -12,6 +12,7 @@ extension StringProtocol {
         self[index(startIndex, offsetBy: offset)]
     }
     
+    // This function is used to create a simple supstring with stard and end index
     func substring(from startIndex: Int, to endIndex: Int) -> String
     {
         var ret = ""

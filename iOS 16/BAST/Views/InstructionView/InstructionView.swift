@@ -29,10 +29,11 @@ struct InstructionView: View {
                 InstructionEntrieView(step: "4", text: Text("Analysis Data"), systemImage: "hand.raised.fill", backgroundColor: .blue, iconColor: .white)
                 InstructionEntrieView(step: "5", text: Text("Search and export the latest \"log-aggregated\" to Files-App."), systemImage: "square.and.arrow.up", backgroundColor: .orange, iconColor: .white)
                 InstructionEntrieView(step: "6", text: Text("If the file is not available, activate \"Share iPhone Analytics.\"\nIt can take up to 24h untill the file will be generated.\""), systemImage: "exclamationmark.circle", backgroundColor: .red, iconColor: .white)
-                InstructionEntrieView(step: "7", text: Text("Import \"log-aggregated\" using the Import Button on the left top site."), systemImage: "square.and.arrow.down", backgroundColor: .green, iconColor: .white)
+                InstructionEntrieView(step: "7", text: Text("Please note that log-files (perhabs personal information) will be sent to Apple if activated!"), systemImage: "exclamationmark.circle", backgroundColor: .red, iconColor: .white)
+                InstructionEntrieView(step: "8", text: Text("Import \"log-aggregated\" using the Import Button on the left top site."), systemImage: "square.and.arrow.down", backgroundColor: .green, iconColor: .white)
                 Spacer()
             }
-            .padding(10)
+            .padding(5)
         }
     }
 }

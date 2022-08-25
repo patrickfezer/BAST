@@ -70,11 +70,10 @@ class BatteryManager
                     }
                 }
                 
-                let range = startIndex..<endIndex
-                let data = item.subdata(in: range)
-                let DataAsString = String(decoding: data, as: UTF8.self)
-                print(DataAsString)
-                ret = Int(DataAsString) ?? 0
+                let range = startIndex..<endIndex // set range for subdata
+                let data = item.subdata(in: range) // create subdata
+                let DataAsString = String(decoding: data, as: UTF8.self) // convert to String
+                ret = Int(DataAsString) ?? 0 // convert to Int
                 break // break i loop
             }
         }
@@ -83,7 +82,7 @@ class BatteryManager
         return ret
     }
     
-    // Create Text view
+    // Create Text View
     public func batteryKeyAsText(data: Data, label: String, key1: keys, key2: keys?) -> some View
     {
         

@@ -12,6 +12,7 @@ struct BASTApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

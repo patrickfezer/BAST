@@ -18,7 +18,15 @@ struct InstructionEntrieView: View {
         HStack {
             HStack
             {
-                Text(step)
+                
+                ZStack(alignment: .center)
+                {
+                    Text(step)
+                    Circle()
+                        .stroke(Color("Circle"), lineWidth: 2)
+                        .frame(width: 25)
+                }
+                
                 
                 
                 Image(systemName: systemImage)
@@ -29,7 +37,7 @@ struct InstructionEntrieView: View {
                     .foregroundColor(iconColor)
                     .background(backgroundColor)
                     .cornerRadius(6)
-                    .padding(.leading, 3)
+                    .padding(.leading, 5)
                     
                 text
                     .padding(.leading, 10)

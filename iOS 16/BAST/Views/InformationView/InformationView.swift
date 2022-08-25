@@ -19,14 +19,7 @@ struct InformationView: View {
                     {
                         Text("Version:")
                         Spacer()
-                        Text("\(AppInformation.appVersion)")
-                    }
-                    
-                    HStack
-                    {
-                        Text("Build:")
-                        Spacer()
-                        Text("\(AppInformation.buildVersion)")
+                        Text("\(AppInformation.appVersion) (\(AppInformation.buildVersion))")
                     }
                 } header: {
                     Text("App Information")

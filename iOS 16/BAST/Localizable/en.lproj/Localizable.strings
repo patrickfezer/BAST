@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  BAST
+
+  Created by Patrick Fezer on 25.08.22.
+  
+*/
+
+"mailNotFoundWarningDescription" = "You need the original Apple Mail App to use this function.";
+"mailNotFoundWarningTitle" = "Apple Mail not found.";
+"loadFileMsg" = "Please import the latest log-aggregated file using the import Button left top site.\nUse the help Section on the right top site to get detailed information about the process";
+"disclaimer" = "The displayed information are based on the imported log-file values.\nIt can't be guaranteed that these values consist to the real battery values.";

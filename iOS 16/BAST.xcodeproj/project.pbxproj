@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A15BE4028B7B60C0051A53D /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15BE3F28B7B60C0051A53D /* MailView.swift */; };
+		5A15BE4628B7BCA60051A53D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A15BE4828B7BCA60051A53D /* Localizable.strings */; };
+		5A15BE4B28B7C76B0051A53D /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15BE4A28B7C76B0051A53D /* InstructionView.swift */; };
+		5A15BE4D28B7C7920051A53D /* InstructionEntrieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15BE4C28B7C7920051A53D /* InstructionEntrieView.swift */; };
 		5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C45E28B783B900C972B7 /* LabelIconView.swift */; };
 		5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */; };
 		5A49E85528B5572A0064361C /* BASTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85428B5572A0064361C /* BASTApp.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A15BE3F28B7B60C0051A53D /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		5A15BE4728B7BCA60051A53D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A15BE4A28B7C76B0051A53D /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
+		5A15BE4C28B7C7920051A53D /* InstructionEntrieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionEntrieView.swift; sourceTree = "<group>"; };
 		5A29C45E28B783B900C972B7 /* LabelIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelIconView.swift; sourceTree = "<group>"; };
 		5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
 		5A49E85128B5572A0064361C /* BAST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAST.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +50,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A15BE3E28B7B6040051A53D /* MailView */ = {
+			isa = PBXGroup;
+			children = (
+				5A15BE3F28B7B60C0051A53D /* MailView.swift */,
+			);
+			path = MailView;
+			sourceTree = "<group>";
+		};
+		5A15BE4328B7BC7F0051A53D /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				5A15BE4828B7BCA60051A53D /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		5A15BE4928B7C74B0051A53D /* InstructionView */ = {
+			isa = PBXGroup;
+			children = (
+				5A15BE4C28B7C7920051A53D /* InstructionEntrieView.swift */,
+				5A15BE4A28B7C76B0051A53D /* InstructionView.swift */,
+			);
+			path = InstructionView;
+			sourceTree = "<group>";
+		};
 		5A29C45D28B7839C00C972B7 /* List Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +102,7 @@
 		5A49E85328B5572A0064361C /* BAST */ = {
 			isa = PBXGroup;
 			children = (
+				5A15BE4328B7BC7F0051A53D /* Localizable */,
 				5A49E86C28B558E00064361C /* Views */,
 				5A49E86728B557CC0064361C /* Classes */,
 				5A49E86628B557AC0064361C /* Main */,
@@ -115,6 +149,8 @@
 		5A49E86C28B558E00064361C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A15BE4928B7C74B0051A53D /* InstructionView */,
+				5A15BE3E28B7B6040051A53D /* MailView */,
 				5AA952D728B77360001D2DC3 /* ContentView */,
 				5AD6D3DA28B77C6E00F2A825 /* InformationView */,
 				5A29C45D28B7839C00C972B7 /* List Styles */,
@@ -174,7 +210,7 @@
 				};
 			};
 			buildConfigurationList = 5A49E84C28B5572A0064361C /* Build configuration list for PBXProject "BAST" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -197,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A49E85C28B5572B0064361C /* Preview Assets.xcassets in Resources */,
+				5A15BE4628B7BCA60051A53D /* Localizable.strings in Resources */,
 				5A49E85928B5572B0064361C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,13 +249,27 @@
 				5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */,
 				5A49E85728B5572A0064361C /* ContentView.swift in Sources */,
 				5A49E86428B557730064361C /* Extensions.swift in Sources */,
+				5A15BE4D28B7C7920051A53D /* InstructionEntrieView.swift in Sources */,
 				5AD6D3DE28B77CFA00F2A825 /* AppInformation.swift in Sources */,
+				5A15BE4B28B7C76B0051A53D /* InstructionView.swift in Sources */,
 				5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */,
 				5A49E85528B5572A0064361C /* BASTApp.swift in Sources */,
+				5A15BE4028B7B60C0051A53D /* MailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5A15BE4828B7BCA60051A53D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A15BE4728B7BCA60051A53D /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5A49E85D28B5572B0064361C /* Debug */ = {
@@ -342,7 +393,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -379,7 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;

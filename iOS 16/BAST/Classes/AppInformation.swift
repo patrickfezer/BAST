@@ -8,9 +8,6 @@
 import Foundation
 import SwiftUI
 
-import Foundation
-import SwiftUI
-
 class AppInformation
 {
     public static let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String

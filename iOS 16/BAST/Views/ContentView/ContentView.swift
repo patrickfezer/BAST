@@ -75,9 +75,7 @@ struct ContentView: View {
                                 Label("Info", systemImage: "info.circle")
                             }
                             
-                            
-
-                            
+ 
                         } label: {
                             Image(systemName: "questionmark.circle")
                         }

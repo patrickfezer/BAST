@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showImportView = false
-//    @State private var blockRefresh = false
+    @State private var showInformationView = false
     @State private var file = Data()
     let bm = BatteryManager()
     
@@ -46,15 +46,54 @@ struct ContentView: View {
                             self.showImportView.toggle()
                         } label:
                         {
-                            Image(systemName: "plus")
+                            Image(systemName: "square.and.arrow.down")
                         }
 
                     }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        
+                        Menu
+                        {
+                            
+                            let urlBast = URL(string: "https://www.fezerapps.com/bast")!
+                            
+                            Link(destination: urlBast)
+                            {
+                                Label("How does it work?", systemImage: "globe")
+                            }
+                            
+                            let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!
+                            Link(destination: urlPrivacy)
+                            {
+                                Label("Privacy", systemImage: "hand.raised.fill")
+                            }
+                            
+                            Button
+                            {
+                                showInformationView.toggle()
+                            } label: {
+                                Label("Info", systemImage: "info.circle")
+                            }
+                            
+                            
+
+                            
+                        } label: {
+                            Image(systemName: "questionmark.circle")
+                        }
+                    }
                 })
             
+            .sheet(isPresented: $showInformationView, content:
+            {
+                    InformationView(dismiss: $showInformationView)
+                        .interactiveDismissDisabled()
+            })
             .fileImporter(isPresented: $showImportView, allowedContentTypes: [.data], allowsMultipleSelection: false, onCompletion: { result in
                 
-                DispatchQueue.main.async {
+                // Take File-handling to backgrpund Thread
+                DispatchQueue.main.async
+                {
                     do
                     {
                         // Get File URL
@@ -62,15 +101,14 @@ struct ContentView: View {
 
                         // Handle Access
                         let canAccess = selectedFile.startAccessingSecurityScopedResource()
-                        guard canAccess else {
+                        guard canAccess else
+                        {
                             return
                         }
 
-                        // Try to get Data
+                        // Try to get data
                         let data = try! Data(contentsOf: selectedFile)
-                        
                     
-
                         // Dispose
                         selectedFile.stopAccessingSecurityScopedResource()
                         
@@ -79,10 +117,10 @@ struct ContentView: View {
                         
                     } catch
                     {
-                        print(error.localizedDescription)
+                    // print error
+                    print(error.localizedDescription)
                     }
                 }
-                
             })
         }
     }

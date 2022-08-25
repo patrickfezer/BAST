@@ -20,7 +20,7 @@ class BatteryManager
     }
 
 
-    public func batteryKey(item: Data, key: keys) -> Int
+    private func batteryKey(item: Data, key: keys) -> Int
     {
         var ret = 0 // return value
         let offset = "</key><integer>".data(using: .utf8)!.count
@@ -70,7 +70,7 @@ class BatteryManager
                     }
                 }
                 
-                let range: Range = startIndex..<endIndex
+                let range = startIndex..<endIndex
                 let data = item.subdata(in: range)
                 let DataAsString = String(decoding: data, as: UTF8.self)
                 print(DataAsString)
@@ -112,6 +112,17 @@ class BatteryManager
     // Calculate normalised percentage
     private func calculatePercentage(in1: Int, in2: Int) -> String
     {
-        return String(format: "%.2f", (Double(in1)/Double(in2))*100)
+        var result = Double(in1)/Double(in2) * 100
+        
+        if result.isNaN
+        {
+            // Set result to 0 if no value is set
+            result = 0
+            return String(format: "%.0f", (result))
+        } else
+        {
+            // return result as String with to digits
+            return String(format: "%.2f", (result))
+        }
     }
 }

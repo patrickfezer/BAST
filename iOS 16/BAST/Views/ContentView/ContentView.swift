@@ -32,17 +32,18 @@ struct ContentView: View {
                         {
                             bm.batteryKeyAsText(data: file, label: "Current Capacity", key1: .nominalChargeCapacity, key2: nil)
                             bm.batteryKeyAsText(data: file, label: "Design Capacity", key1: .designCapacity, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Max. Capacity", key1: .maxFCC, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Min. Capacity", key1: .minFCC, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Maximum Capacity", key1: .maxFCC, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Minimum Capacity", key1: .minFCC, key2: nil)
                             bm.batteryKeyAsText(data: file, label: "Cycle Count", key1: .cycleCount, key2: nil)
                         }
                         
                                 
                         Section("Health")
                         {
-                            bm.batteryKeyAsText(data: file, label: "Real Health", key1: .nominalChargeCapacity, key2: .designCapacity)
-                            bm.batteryKeyAsText(data: file, label: "Max. Health", key1: .nominalChargeCapacity, key2: .minFCC)
-                            bm.batteryKeyAsText(data: file, label: "Min. Health", key1: .nominalChargeCapacity, key2: .maxFCC)
+                            bm.batteryKeyAsText(data: file, label: "Current Health", key1: .nominalChargeCapacity, key2: .designCapacity)
+                            bm.batteryKeyAsText(data: file, label: "Minimum Health", key1: .nominalChargeCapacity, key2: .maxFCC)
+                            bm.batteryKeyAsText(data: file, label: "Original Health", key1: .maxFCC, key2: .designCapacity)
+                            
                         }
                         
                         Section {
@@ -75,13 +76,17 @@ struct ContentView: View {
                         Menu
                         {
                             
-                            // General App information
-                            let urlBast = URL(string: "https://www.fezerapps.com/bast")!
-                            
-                            Link(destination: urlBast)
+                            if !file.isEmpty
                             {
-                                Label("How does it work?", systemImage: "globe")
+                                Button
+                                {
+                                    file = Data() // Delete Files
+                                } label: {
+                                    Label("How does it work?", systemImage: "globe")
+                                }
                             }
+                            
+
                             
                             // Privacy
                             let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!

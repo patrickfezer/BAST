@@ -86,6 +86,19 @@ class BatteryManager
     public func batteryKeyAsText(data: Data, label: String, key1: keys, key2: keys?) -> some View
     {
         
+        // Unit for capactiy
+        var unit: String
+        {
+            var ret = ""
+            
+            if key1 != .cycleCount
+            {
+                ret = "mAh"
+            }
+            
+            return ret
+        }
+        
         if key2 != nil
         {
             return HStack
@@ -101,7 +114,7 @@ class BatteryManager
             {
                 Text(label)
                 Spacer()
-                Text(String(batteryKey(item: data, key: key1)))
+                Text(String(batteryKey(item: data, key: key1)) + unit)
             }
         }
         

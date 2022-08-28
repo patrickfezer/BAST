@@ -93,7 +93,7 @@ class BatteryManager
             
             if key1 != .cycleCount
             {
-                ret = "mAh"
+                ret = " mAh"
             }
             
             return ret

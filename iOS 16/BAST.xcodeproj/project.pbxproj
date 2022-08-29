@@ -18,6 +18,7 @@
 		5A49E85928B5572B0064361C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A49E85828B5572B0064361C /* Assets.xcassets */; };
 		5A49E85C28B5572B0064361C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A49E85B28B5572B0064361C /* Preview Assets.xcassets */; };
 		5A49E86428B557730064361C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E86328B557730064361C /* Extensions.swift */; };
+		5A88605A28BD224C001A9489 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88605928BD224C001A9489 /* FAQView.swift */; };
 		5AD6D3DC28B77C8000F2A825 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6D3DB28B77C8000F2A825 /* InformationView.swift */; };
 		5AD6D3DE28B77CFA00F2A825 /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6D3DD28B77CFA00F2A825 /* AppInformation.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		5A49E85828B5572B0064361C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A49E85B28B5572B0064361C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A49E86328B557730064361C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5A88605928BD224C001A9489 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		5AA14B7128B815F1000F9731 /* BAST.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BAST.entitlements; sourceTree = "<group>"; };
 		5AD6D3DB28B77C8000F2A825 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		5AD6D3DD28B77CFA00F2A825 /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
@@ -151,10 +153,11 @@
 		5A49E86C28B558E00064361C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A15BE4928B7C74B0051A53D /* InstructionView */,
-				5A15BE3E28B7B6040051A53D /* MailView */,
 				5AA952D728B77360001D2DC3 /* ContentView */,
+				5A15BE4928B7C74B0051A53D /* InstructionView */,
 				5AD6D3DA28B77C6E00F2A825 /* InformationView */,
+				5A15BE3E28B7B6040051A53D /* MailView */,
+				5AF98BFE28BD1EC3008E243A /* FAQView */,
 				5A29C45D28B7839C00C972B7 /* List Styles */,
 			);
 			path = Views;
@@ -174,6 +177,14 @@
 				5AD6D3DB28B77C8000F2A825 /* InformationView.swift */,
 			);
 			path = InformationView;
+			sourceTree = "<group>";
+		};
+		5AF98BFE28BD1EC3008E243A /* FAQView */ = {
+			isa = PBXGroup;
+			children = (
+				5A88605928BD224C001A9489 /* FAQView.swift */,
+			);
+			path = FAQView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */,
 				5A49E85528B5572A0064361C /* BASTApp.swift in Sources */,
 				5A15BE4028B7B60C0051A53D /* MailView.swift in Sources */,
+				5A88605A28BD224C001A9489 /* FAQView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +408,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -416,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fezer.BAST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -436,7 +448,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -456,7 +468,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fezer.BAST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

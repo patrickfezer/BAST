@@ -6,7 +6,47 @@
   
 */
 
+// Defaults
+"close" = "Close";
+
+// Warnings
 "mailNotFoundWarningDescription" = "You need the original Apple Mail App to use this function.";
+
 "mailNotFoundWarningTitle" = "Apple Mail not found.";
+
 "loadFileMsg" = "Please import the latest log-aggregated file using the import Button left top site.\nUse the help Section on the right top site to get detailed information about the process";
+
+"wrongFileMsg" = "Please make sure to import the \"log-aggregated\"-file as .ips\nTo do so, just export the logfile to Files-App using the Share Button on the top right site after opened it.";
+
+
+// Instruction view
 "disclaimer" = "The displayed information are based on the imported logfile values.\nIt can't be guaranteed that these values consist to the real battery values.";
+"wrongFileWarningTitle" = "Wrong file extension";
+
+"openSettings" = "Open Settings";
+
+"privacySecurity" = "Privacy & Security";
+
+"analysisImprovement" = "Analytics & Improvements";
+
+"analysisData" = "Analysis Data";
+
+"searchFileMsg" = "Search and open the latest \"log-aggregated\" entry.\nPlease export the logfile to Files-App using the Share Button on the top right side.";
+
+"fileNotAvailableMsg" = "If the file is not available, activate \"Share iPhone Analytics.\"\nIt can take up to 24h untill the file will be generated.";
+
+"logfileWarningMsg" = "Please note that logfiles (perhabs personal information) will be sent to Apple if activated!";
+
+"importLogfileMsg" = "Import the \"log-aggregated\"-file into the App using the Import Button on the top left site.";
+
+"valuesMissingMsg" = "If values are missing or looking wrong, please try to import an older version of the logfile.";
+
+
+// FQA
+"missingValuesDesc" = "It often happens that not all information are written to the logfile. Unfortunately, you have to try loading other logfile versions of the \"log-aggregated\"-file until all values will be available.";
+
+"missingValuesHeader" = "Wrong or missing values";
+
+"cannotOpenFileDesc" = "Plese make sure to export the \"log-aggregated\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side inside the logfile.\nDo not copy the text inside! The import will only wotk if you will export the logfile to Files-App using the Share Button inside.";
+
+"cannotImportFileHeader" = "Cannot import File";

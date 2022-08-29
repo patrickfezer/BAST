@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var showInformationView = false
     @State private var showMailSheet = false
     @State private var showMailAlert = false
+    @State private var showFAQSheet = false
     @State private var wrongFileAlert = false
     @State private var result: Result<MFMailComposeResult, Error>? = nil
 
@@ -104,6 +105,13 @@ struct ContentView: View {
                                 Label("Info", systemImage: "info.circle.fill")
                             }
                             
+                            Button {
+                                showFAQSheet.toggle()
+                            } label: {
+                                Label("FAQ", systemImage: "person.fill.questionmark")
+                            }
+
+                            
                             // MailSheet
                             Button {
                                 if MFMailComposeViewController.canSendMail() {
@@ -123,13 +131,22 @@ struct ContentView: View {
                     }
                 })
             
+            // Information Sheet
             .sheet(isPresented: $showInformationView, content:
             {
                     InformationView(dismiss: $showInformationView)
                         .interactiveDismissDisabled()
             })
+            
+            // Mail Sheet
             .sheet(isPresented: $showMailSheet, content: {
                 MailView(result: $result, newSubject: "BAST", newMsgBody: appInformationString, mailAddress: "info@fezerapps.com")
+            })
+            
+            // FAQ Sheet
+            .sheet(isPresented: $showFAQSheet, content: {
+                FAQView(dismiss: $showFAQSheet)
+                    .interactiveDismissDisabled()
             })
             
             // Missing Mail App
@@ -140,7 +157,7 @@ struct ContentView: View {
             // Wrong File imported
             .alert(isPresented: $wrongFileAlert)
             {
-                Alert(title: Text("Wrong file format"), message: Text("Please make sure to import the \"log-aggregated\"-file as .ips\nJust export the logfile to Files-App using the Share Button on the top right site after opened it."), dismissButton: .default(Text("Ok")))
+                Alert(title: Text("wrongFileWarningTitle"), message: Text("wrongFileMsg"), dismissButton: .default(Text("Ok")))
             }
             
             .fileImporter(isPresented: $showImportView, allowedContentTypes: [.data], allowsMultipleSelection: false, onCompletion: { result in
@@ -172,6 +189,7 @@ struct ContentView: View {
                         if selectedFile.pathExtension != "ips"
                         {
                             wrongFileAlert.toggle()
+                            self.file = Data() // reset file
                         } else
                         {
                             // set file to data

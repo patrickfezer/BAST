@@ -46,7 +46,7 @@ struct InformationView: View {
             {
                 ToolbarItem(placement: .navigationBarTrailing)
                 {
-                    Button("Close")
+                    Button("close")
                     {
                         dismiss = false
                     }

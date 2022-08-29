@@ -20,7 +20,7 @@ class BatteryManager
     }
 
 
-    private func batteryKey(item: Data, key: keys) -> Int
+    public func batteryKey(item: Data, key: keys) -> Int
     {
         var ret = 0 // return value
         let offset = "</key><integer>".data(using: .utf8)!.count

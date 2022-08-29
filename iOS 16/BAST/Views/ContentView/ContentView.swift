@@ -13,9 +13,10 @@ struct ContentView: View {
     @State private var showInformationView = false
     @State private var showMailSheet = false
     @State private var showMailAlert = false
+    @State private var wrongFileAlert = false
     @State private var result: Result<MFMailComposeResult, Error>? = nil
 
-    let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.devive)\n \(AppInformation.systemVersion)"
+    let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
     @State private var file = Data()
     let bm = BatteryManager()
     
@@ -131,8 +132,15 @@ struct ContentView: View {
                 MailView(result: $result, newSubject: "BAST", newMsgBody: appInformationString, mailAddress: "info@fezerapps.com")
             })
             
+            // Missing Mail App
             .alert(isPresented: $showMailAlert) {
                 Alert(title: Text("mailNotFoundWarningTitle"), message: Text("mailNotFoundWarningDescription"), dismissButton: .default(Text("Ok")))
+            }
+            
+            // Wrong File imported
+            .alert(isPresented: $wrongFileAlert)
+            {
+                Alert(title: Text("Wrong file format"), message: Text("Please make sure to import the \"log-aggregated\"-file as .ips\nJust export the logfile to Files-App using the Share Button on the top right site after opened it."), dismissButton: .default(Text("Ok")))
             }
             
             .fileImporter(isPresented: $showImportView, allowedContentTypes: [.data], allowsMultipleSelection: false, onCompletion: { result in
@@ -158,8 +166,19 @@ struct ContentView: View {
                         // Dispose
                         selectedFile.stopAccessingSecurityScopedResource()
                         
-                        // Convert data to string
-                        self.file = data
+                        // check if imported file is correct
+                        
+                        
+                        if selectedFile.pathExtension != "ips"
+                        {
+                            wrongFileAlert.toggle()
+                        } else
+                        {
+                            // set file to data
+                            self.file = data
+                        }
+                        
+
                         
                     } catch
                     {

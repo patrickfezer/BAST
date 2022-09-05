@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showMailAlert = false
     @State private var showFAQSheet = false
     @State private var wrongFileAlert = false
+    @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
 
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
@@ -59,7 +60,7 @@ struct ContentView: View {
                     InstructionView()
                 }
             }
-                .navigationTitle("Battery Health")
+                .navigationTitle(header)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading)
@@ -69,7 +70,7 @@ struct ContentView: View {
                             self.showImportView.toggle()
                         } label:
                         {
-                            Image(systemName: "square.and.arrow.down")
+                            Text("import")
                         }
 
                     }
@@ -84,7 +85,7 @@ struct ContentView: View {
                                 {
                                     file = Data() // Delete Files
                                 } label: {
-                                    Label("How does it work?", systemImage: "globe")
+                                    Label("userGuide", systemImage: "globe")
                                 }
                             }
                             
@@ -126,10 +127,21 @@ struct ContentView: View {
 
  
                         } label: {
-                            Image(systemName: "questionmark.circle")
+                            Text("help")
                         }
                     }
                 })
+            
+            // Trigger file change to change heaader value
+            .onChange(of: file, perform: { newFileValue in
+                if !newFileValue.isEmpty
+                {
+                    header = Text("headerBatteryHealth")
+                } else
+                {
+                    header = Text("headerUserGuide")
+                }
+            })
             
             // Information Sheet
             .sheet(isPresented: $showInformationView, content:
@@ -160,7 +172,7 @@ struct ContentView: View {
                 Alert(title: Text("wrongFileWarningTitle"), message: Text("wrongFileMsg"), dismissButton: .default(Text("Ok")))
             }
             
-            .fileImporter(isPresented: $showImportView, allowedContentTypes: [.data], allowsMultipleSelection: false, onCompletion: { result in
+            .fileImporter(isPresented: $showImportView, allowedContentTypes: [.item], allowsMultipleSelection: false, onCompletion: { result in
                 
                 // Take File-handling to backgrpund Thread
                 DispatchQueue.main.async
@@ -196,8 +208,6 @@ struct ContentView: View {
                             self.file = data
                         }
                         
-
-                        
                     } catch
                     {
                     // print error
@@ -212,6 +222,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 13")
             .preferredColorScheme(.dark)
     }
 }

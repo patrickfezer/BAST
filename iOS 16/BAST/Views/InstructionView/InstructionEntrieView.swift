@@ -28,7 +28,6 @@ struct InstructionEntrieView: View {
                 }
                 
                 
-                
                 Image(systemName: systemImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

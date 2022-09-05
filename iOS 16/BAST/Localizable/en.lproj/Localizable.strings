@@ -6,10 +6,10 @@
   
 */
 
-// Defaults
+// MARK: Default key words
 "close" = "Close";
 
-// Warnings
+// MARK: Warnings
 "mailNotFoundWarningDescription" = "You need the original Apple Mail App to use this function.";
 
 "mailNotFoundWarningTitle" = "Apple Mail not found.";
@@ -19,7 +19,9 @@
 "wrongFileMsg" = "Please make sure to import the \"log-aggregated\"-file as .ips\nTo do so, just export the logfile to Files-App using the Share Button on the top right site after opened it.";
 
 
-// Instruction view
+// MARK: Instruction view
+"userGuide" = "User Guide";
+
 "disclaimer" = "The displayed information are based on the imported logfile values.\nIt can't be guaranteed that these values consist to the real battery values.";
 "wrongFileWarningTitle" = "Wrong file extension";
 
@@ -31,22 +33,48 @@
 
 "analysisData" = "Analysis Data";
 
-"searchFileMsg" = "Search and open the latest \"log-aggregated\" entry.\nPlease export the logfile to Files-App using the Share Button on the top right side.";
-
-"fileNotAvailableMsg" = "If the file is not available, activate \"Share iPhone Analytics.\"\nIt can take up to 24h untill the file will be generated.";
-
-"logfileWarningMsg" = "Please note that logfiles (perhabs personal information) will be sent to Apple if activated!";
+"searchFileMsg" = "Search and open the latest \"log-aggregated\" entry.\nPlease export the logfile to the Files-App using the Share Button on the top right side.";
 
 "importLogfileMsg" = "Import the \"log-aggregated\"-file into the App using the Import Button on the top left site.";
 
-"valuesMissingMsg" = "If values are missing or looking wrong, please try to import an older version of the logfile.";
+"useFAQMsg" = "Please use the FAQ if you are facing any issues.";
+
+"help" = "Help";
 
 
-// FQA
-"missingValuesDesc" = "It often happens that not all information are written to the logfile. Unfortunately, you have to try loading other logfile versions of the \"log-aggregated\"-file until all values will be available.";
+// MARK: FQA
 
-"missingValuesHeader" = "Wrong or missing values";
+// Missing Values
+"missingValuesDesc" = "It often happens that values are not written correctly into the logfile. For example, the capacity of the device is shown as 200 mAh or other values are shown as 0. Unfortunately, you have to try loading other logfile versions of the \"log-aggregated\"-file until all values are available.";
 
-"cannotOpenFileDesc" = "Plese make sure to export the \"log-aggregated\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side inside the logfile.\nDo not copy the text inside! The import will only wotk if you will export the logfile to Files-App using the Share Button inside.";
+"missingValuesHeader" = "Values are missing or wrong";
 
-"cannotImportFileHeader" = "Cannot import File";
+// File cannot be opened
+"cannotOpenFileDesc" = "Please make sure to export the \"log-aggregated\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side.\nDo not copy the text inside! The import will only wotk if you export the logfile to the Files-App using the Share Button.";
+
+"cannotImportFileHeader" = "File cannot be imported";
+
+// Missing Logfile
+"logfileMissingHeader" = "\"log-aggregated\" not found";
+
+"logfileMissingDesc" = "Please turn on \"Share iPhone Analytics\" and restart your Device. It can take up to 24h until the file will be generated.\nPlease note that logfiles perhabs contain personal information and will be sent to Apple if \"Share iPhone Analytics\" is activated.";
+
+// How is Helath calculated
+"healthCalcHeader" = "How is health calculated?";
+"healthCalcDesc" = "Current Health = Current Cap./Design Cap.\n\n
+Min. Health = Current Cap./Maximum Cap.\n\n
+Orig. Health = Maximum Cap./Design Cap.";
+
+// Diffrent Capacities
+"diffrentCapHeader" = "What are the diffrent Capacities?";
+"diffrentCapDesc" = "Current Cap.: The remaining capacity of the battery.\n
+Design Cap.: The factory capacity of the battery.\n
+Maximum Cap.: The max. capacity the battery could theoretically have.\n
+Minimum Cap.: The minimum capacity the battery could theoretically have.\n
+Cycle Count: Indicates how often the battery has been charged.";
+
+// Content View
+"headerUserGuide" = "User Guide";
+"headerBatteryHealth" = "Battery Health";
+"import" = "Import";
+

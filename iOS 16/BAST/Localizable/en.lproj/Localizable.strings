@@ -78,3 +78,12 @@ Cycle Count: Indicates how often the battery has been charged.";
 "headerBatteryHealth" = "Battery Health";
 "import" = "Import";
 
+// MARK: InformationView
+"infoHeader" = "Information";
+"exportLogfile" = "Export logfile";
+"contact" = "Contact";
+"privacy" = "Privacy";
+"servicePrivacy" = "Service & Privacy";
+"website" = "Website";
+"developer" = "Developer";
+

@@ -27,7 +27,7 @@ class BatteryManager
         var indexCounter = 0 // will be increased at character match
         let lengthKey = key.rawValue.count // length of the key
         let keyAsData = key.rawValue.data(using: .utf8)!
-        
+        let logger = TextLogger()
         
         
         for i in 0..<item.count
@@ -73,11 +73,11 @@ class BatteryManager
                 let range = startIndex..<endIndex // set range for subdata
                 let data = item.subdata(in: range) // create subdata
                 let DataAsString = String(decoding: data, as: UTF8.self) // convert to String
+                logger.log("\(key.rawValue): \(DataAsString)") // log values
                 ret = Int(DataAsString) ?? 0 // convert to Int
                 break // break i loop
             }
         }
-
         // Return result
         return ret
     }

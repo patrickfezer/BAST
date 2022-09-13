@@ -9,6 +9,15 @@ import SwiftUI
 
 struct InformationView: View {
     @Binding var dismiss: Bool
+    @State private var showFileExporter = false
+    let logger = TextLogger()
+    let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!
+    let urlWebsite = URL(string: "https://www.fezerapps.com")!
+    
+    var document: Doc
+    {
+        return Doc(initialText: logger.convertToString())
+    }
     
     var body: some View {
         NavigationView {
@@ -22,21 +31,41 @@ struct InformationView: View {
                         Text("\(AppInformation.appVersion) (\(AppInformation.buildVersion))")
                     }
                 } header: {
-                    Text("App Information")
+                    Text("infoHeader")
                         .textCase(nil)
                 }
                 
                 Section {
-                    let url = URL(string: "https://www.fezerapps.com")!
-                    Link(destination: url) {
-                        LabelIconView(icon: "globe", iconColor: .white, backgroundColor: .blue, text: Text("Website"))
+                    Button {
+                        showFileExporter.toggle()
+                        logger.log("Logfile exported")
+                    } label: {
+                        LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
+                    }
+                    
+                    Link(destination: urlPrivacy)
+                    {
+                        LabelIconView(icon: "hand.raised.fill", iconColor: .white, backgroundColor: .blue, text: Text("privacy"))
+                    }
+
+                
+                } header: {
+                    Text("servicePrivacy")
+                        .textCase(nil)
+                }
+
+                
+                Section {
+                    Link(destination: urlWebsite) {
+                        LabelIconView(icon: "globe", iconColor: .white, backgroundColor: .blue, text: Text("website"))
                     }
                 } header: {
-                    Text("Developer")
+                    Text("developer")
                         .textCase(nil)
                 } footer: {
                     Text("© Patrick Fezer")
                 }
+                
 
 
             }
@@ -51,6 +80,10 @@ struct InformationView: View {
                         dismiss = false
                     }
                 }
+            }
+            
+            .fileExporter(isPresented: $showFileExporter, document: document, contentType: .log, defaultFilename: "log_BAST.log") { result in
+                print("File exporter started")
             }
         }
     }

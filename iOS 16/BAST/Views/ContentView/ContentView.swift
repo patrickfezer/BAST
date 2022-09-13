@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MessageUI
+import OSLog
 
 struct ContentView: View {
     @State private var showImportView = false
@@ -17,9 +18,11 @@ struct ContentView: View {
     @State private var wrongFileAlert = false
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
-
-    let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
     @State private var file = Data()
+    @State private var logger = TextLogger()
+    
+    let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
+    
     let bm = BatteryManager()
     
     var body: some View {
@@ -88,15 +91,7 @@ struct ContentView: View {
                                     Label("userGuide", systemImage: "globe")
                                 }
                             }
-                            
 
-                            
-                            // Privacy
-                            let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!
-                            Link(destination: urlPrivacy)
-                            {
-                                Label("Privacy", systemImage: "hand.raised.fill")
-                            }
                             
                             // InformationSheet
                             Button
@@ -106,6 +101,8 @@ struct ContentView: View {
                                 Label("Info", systemImage: "info.circle.fill")
                             }
                             
+                            
+                            // FAQSheet
                             Button {
                                 showFAQSheet.toggle()
                             } label: {
@@ -115,16 +112,28 @@ struct ContentView: View {
                             
                             // MailSheet
                             Button {
-                                if MFMailComposeViewController.canSendMail() {
+                                if MFMailComposeViewController.canSendMail()
+                                {
                                     self.showMailSheet = true
                                 } else
                                 {
                                     showMailAlert = true
                                 }
                             } label: {
-                                Label("Contact", systemImage: "envelope.fill")
+                                Label("contact", systemImage: "envelope.fill")
                             }
+                            
+                            // Clear Logfile
+                            if AppInformation.debug
+                            {
+                                Button {
+                                    logger.clearLogfile()
+                                    print("Logfile cleared")
+                                } label: {
+                                    Label("Clear Logfile", systemImage:  "trash")
+                                }
 
+                            }
  
                         } label: {
                             Text("help")
@@ -196,25 +205,27 @@ struct ContentView: View {
                         selectedFile.stopAccessingSecurityScopedResource()
                         
                         // check if imported file is correct
-                        
-                        
                         if selectedFile.pathExtension != "ips"
                         {
                             wrongFileAlert.toggle()
                             self.file = Data() // reset file
+                            
+                            // Log warning
+                            logger.log("Wrong file extension. Extension is: \(selectedFile.pathExtension)")
                         } else
                         {
                             // set file to data
                             self.file = data
+                            logger.log("File sucessfully imported")
                         }
                         
                     } catch
                     {
-                    // print error
-                    print(error.localizedDescription)
+                        logger.log(error.localizedDescription)
                     }
                 }
             })
+            
         }
     }
 }
@@ -222,7 +233,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPhone 13")
+            .previewDevice("iPhone 14 Pro")
             .preferredColorScheme(.dark)
     }
 }

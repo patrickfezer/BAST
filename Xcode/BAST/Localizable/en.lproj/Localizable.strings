@@ -22,7 +22,6 @@
 // MARK: Instruction view
 "userGuide" = "User Guide";
 
-"disclaimer" = "The displayed information are based on the imported logfile values.\nIt can't be guaranteed that these values consist to the real battery values.";
 "wrongFileWarningTitle" = "Wrong file extension";
 
 "openSettings" = "Open Settings";
@@ -77,6 +76,8 @@ Cycle Count: Indicates how often the battery has been charged.";
 "headerUserGuide" = "User Guide";
 "headerBatteryHealth" = "Battery Health";
 "import" = "Import";
+"healthHeader" = "Health";
+"capacityCyclesHeader" = "Capacity & Cycles";
 
 // MARK: InformationView
 "infoHeader" = "Information";
@@ -86,4 +87,6 @@ Cycle Count: Indicates how often the battery has been charged.";
 "servicePrivacy" = "Service & Privacy";
 "website" = "Website";
 "developer" = "Developer";
+"disclaimer" = "The displayed information are based on the imported logfile values.\nIt can't be guaranteed that these values consist to the real battery values.";
+"disclaimerHeader" = "Disclaimer";
 

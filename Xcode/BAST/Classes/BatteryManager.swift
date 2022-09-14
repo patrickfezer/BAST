@@ -10,6 +10,8 @@ import SwiftUI
 
 class BatteryManager
 {
+    let logger = TextLogger()
+    
     public enum keys: String
     {
         case maxFCC = "BatteryMaxFCC"
@@ -27,12 +29,10 @@ class BatteryManager
         var indexCounter = 0 // will be increased at character match
         let lengthKey = key.rawValue.count // length of the key
         let keyAsData = key.rawValue.data(using: .utf8)!
-        let logger = TextLogger()
-        
-        
+
+        // Read file
         for i in 0..<item.count
         {
-
             // indexCounter handling
             if item[i] == keyAsData[indexCounter]
             {
@@ -73,8 +73,14 @@ class BatteryManager
                 let range = startIndex..<endIndex // set range for subdata
                 let data = item.subdata(in: range) // create subdata
                 let DataAsString = String(decoding: data, as: UTF8.self) // convert to String
-                logger.log("\(key.rawValue): \(DataAsString)") // log values
                 ret = Int(DataAsString) ?? 0 // convert to Int
+                
+                // log value if 0
+                if ret == 0
+                {
+                    logger.log("Value not found: \(key.rawValue) = \(ret)")
+                }
+                
                 break // break i loop
             }
         }
@@ -126,8 +132,11 @@ class BatteryManager
     {
         var result = Double(in1)/Double(in2) * 100
         
-        if result.isNaN
+        if result.isNaN || result.isInfinite
         {
+            // log reuslt
+            logger.log("Invalid division: \(in1)/\(in2) = \(result)")
+            
             // Set result to 0 if no value is set
             result = 0
             return String(format: "%.0f", (result))

@@ -34,7 +34,8 @@ struct ContentView: View {
                 {
                     List
                     {
-                        Section("Capacity & Cycles")
+                        // Capacity and Cycles
+                        Section("capacityCyclesHeader")
                         {
                             bm.batteryKeyAsText(data: file, label: "Current Capacity", key1: .nominalChargeCapacity, key2: nil)
                             bm.batteryKeyAsText(data: file, label: "Design Capacity", key1: .designCapacity, key2: nil)
@@ -43,29 +44,31 @@ struct ContentView: View {
                             bm.batteryKeyAsText(data: file, label: "Cycle Count", key1: .cycleCount, key2: nil)
                         }
                         
-                                
-                        Section("Health")
+                        // Battery health
+                        Section("healthHeader")
                         {
                             bm.batteryKeyAsText(data: file, label: "Current Health", key1: .nominalChargeCapacity, key2: .designCapacity)
                             bm.batteryKeyAsText(data: file, label: "Minimum Health", key1: .nominalChargeCapacity, key2: .maxFCC)
                             bm.batteryKeyAsText(data: file, label: "Original Health", key1: .maxFCC, key2: .designCapacity)
-                            
                         }
                         
+                        // Disclaimer
                         Section {
                             Text("disclaimer")
                         } header: {
-                            Text("Disclaimer")
+                            Text("disclaimerHeader")
                         }
                     }
                 } else
                 {
+                    // InstructionView if File is emty
                     InstructionView()
                 }
             }
                 .navigationTitle(header)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
+                    // Import Button
                     ToolbarItem(placement: .navigationBarLeading)
                     {
                         Button
@@ -77,16 +80,21 @@ struct ContentView: View {
                         }
 
                     }
+                    
+                    // Help Button
                     ToolbarItem(placement: .navigationBarTrailing) {
                         
                         Menu
                         {
-                            
                             if !file.isEmpty
                             {
+                                
+                                // User Guide
                                 Button
                                 {
-                                    file = Data() // Delete Files
+                                    file = Data() // Clear File, User Guide will be called
+                                    logger.log("Opened User Guide")
+                                    logger.log("Cleared Data")
                                 } label: {
                                     Label("userGuide", systemImage: "globe")
                                 }
@@ -97,6 +105,7 @@ struct ContentView: View {
                             Button
                             {
                                 showInformationView.toggle()
+                                logger.log("Opened Info")
                             } label: {
                                 Label("Info", systemImage: "info.circle.fill")
                             }
@@ -105,6 +114,7 @@ struct ContentView: View {
                             // FAQSheet
                             Button {
                                 showFAQSheet.toggle()
+                                logger.log("Read FAQ")
                             } label: {
                                 Label("FAQ", systemImage: "person.fill.questionmark")
                             }
@@ -115,9 +125,11 @@ struct ContentView: View {
                                 if MFMailComposeViewController.canSendMail()
                                 {
                                     self.showMailSheet = true
+                                    logger.log("Opened Mail")
                                 } else
                                 {
                                     showMailAlert = true
+                                    logger.log("Mail Alert")
                                 }
                             } label: {
                                 Label("contact", systemImage: "envelope.fill")

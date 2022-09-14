@@ -9,7 +9,7 @@ import Foundation
 
 class TextLogger
 {
-    private var logLimit = 200 // Limit of the log entries
+    private var logLimit = 1000 // Limit of the log entries
     private var saveKey = "saveKeyTextLogger" // Save key for UserDefaults
     private var logs: [String] // array of logs as string
     
@@ -34,6 +34,7 @@ class TextLogger
         {
             logs.remove(at: 0)
         }
+        
         // save logs
         save()
     }
@@ -59,6 +60,6 @@ class TextLogger
     public init()
     {
         // Read stored values from UserDefauts
-        logs = UserDefaults.standard.object(forKey: saveKey) as? [String] ?? [""]
+        logs = UserDefaults.standard.array(forKey: saveKey) as? [String] ?? [""]
     }
 }

@@ -39,6 +39,10 @@ struct InformationView: View {
                     Button {
                         showFileExporter.toggle()
                         logger.log("Logfile exported")
+                        logger.log("App Version: " + AppInformation.appVersion)
+                        logger.log("Build Version: " + AppInformation.buildVersion)
+                        logger.log("Device: " + AppInformation.device)
+                        logger.log("System Version: " + AppInformation.systemVersion)
                     } label: {
                         LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
                     }
@@ -66,8 +70,6 @@ struct InformationView: View {
                     Text("© Patrick Fezer")
                 }
                 
-
-
             }
             .navigationTitle(Text("App Information"))
             .navigationBarTitleDisplayMode(.inline)

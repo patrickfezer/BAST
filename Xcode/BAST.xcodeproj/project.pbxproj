@@ -12,7 +12,7 @@
 		5A15BE4B28B7C76B0051A53D /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15BE4A28B7C76B0051A53D /* InstructionView.swift */; };
 		5A15BE4D28B7C7920051A53D /* InstructionEntrieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15BE4C28B7C7920051A53D /* InstructionEntrieView.swift */; };
 		5A1C703328D0896D00FAC926 /* TextLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C703228D0896D00FAC926 /* TextLogger.swift */; };
-		5A1C703528D08DFF00FAC926 /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C703428D08DFF00FAC926 /* Doc.swift */; };
+		5A1C703528D08DFF00FAC926 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C703428D08DFF00FAC926 /* Document.swift */; };
 		5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C45E28B783B900C972B7 /* LabelIconView.swift */; };
 		5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */; };
 		5A49E85528B5572A0064361C /* BASTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85428B5572A0064361C /* BASTApp.swift */; };
@@ -32,7 +32,7 @@
 		5A15BE4A28B7C76B0051A53D /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
 		5A15BE4C28B7C7920051A53D /* InstructionEntrieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionEntrieView.swift; sourceTree = "<group>"; };
 		5A1C703228D0896D00FAC926 /* TextLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLogger.swift; sourceTree = "<group>"; };
-		5A1C703428D08DFF00FAC926 /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
+		5A1C703428D08DFF00FAC926 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		5A29C45E28B783B900C972B7 /* LabelIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelIconView.swift; sourceTree = "<group>"; };
 		5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
 		5A49E85128B5572A0064361C /* BAST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAST.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +153,7 @@
 				5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */,
 				5AD6D3DD28B77CFA00F2A825 /* AppInformation.swift */,
 				5A1C703228D0896D00FAC926 /* TextLogger.swift */,
-				5A1C703428D08DFF00FAC926 /* Doc.swift */,
+				5A1C703428D08DFF00FAC926 /* Document.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 			files = (
 				5AD6D3DC28B77C8000F2A825 /* InformationView.swift in Sources */,
 				5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */,
-				5A1C703528D08DFF00FAC926 /* Doc.swift in Sources */,
+				5A1C703528D08DFF00FAC926 /* Document.swift in Sources */,
 				5A49E85728B5572A0064361C /* ContentView.swift in Sources */,
 				5A49E86428B557730064361C /* Extensions.swift in Sources */,
 				5A15BE4D28B7C7920051A53D /* InstructionEntrieView.swift in Sources */,
@@ -420,7 +420,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -460,7 +460,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;

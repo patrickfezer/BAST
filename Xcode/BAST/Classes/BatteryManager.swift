@@ -10,7 +10,7 @@ import SwiftUI
 
 class BatteryManager
 {
-    let logger = TextLogger()
+    private let logger: TextLogger
     
     public enum keys: String
     {
@@ -101,7 +101,6 @@ class BatteryManager
             {
                 ret = " mAh"
             }
-            
             return ret
         }
         
@@ -145,5 +144,11 @@ class BatteryManager
             // return result as String with to digits
             return String(format: "%.2f", (result))
         }
+    }
+    
+    // Initializer
+    init(logger: TextLogger)
+    {
+        self.logger = logger
     }
 }

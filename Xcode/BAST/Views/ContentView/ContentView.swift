@@ -19,11 +19,15 @@ struct ContentView: View {
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
     @State private var file = Data()
-    @State private var logger = TextLogger()
+    @EnvironmentObject var logger: TextLogger
     
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
     
-    let bm = BatteryManager()
+    
+    var bm: BatteryManager
+    {
+        return BatteryManager(logger: logger)
+    }
     
     var body: some View {
         NavigationView
@@ -134,18 +138,6 @@ struct ContentView: View {
                             } label: {
                                 Label("contact", systemImage: "envelope.fill")
                             }
-                            
-                            // Clear Logfile
-                            if AppInformation.debug
-                            {
-                                Button {
-                                    logger.clearLogfile()
-                                    print("Logfile cleared")
-                                } label: {
-                                    Label("Clear Logfile", systemImage:  "trash")
-                                }
-
-                            }
  
                         } label: {
                             Text("help")
@@ -167,8 +159,8 @@ struct ContentView: View {
             // Information Sheet
             .sheet(isPresented: $showInformationView, content:
             {
-                    InformationView(dismiss: $showInformationView)
-                        .interactiveDismissDisabled()
+                InformationView(dismiss: $showInformationView)
+                    .interactiveDismissDisabled()
             })
             
             // Mail Sheet

@@ -10,14 +10,21 @@ import SwiftUI
 struct InformationView: View {
     @Binding var dismiss: Bool
     @State private var showFileExporter = false
-    let logger = TextLogger()
+    @EnvironmentObject var logger: TextLogger
     let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!
     let urlWebsite = URL(string: "https://www.fezerapps.com")!
     
-    var document: Doc
+    var document: TransferableDocument
     {
-        return Doc(initialText: logger.convertToString())
+        return TransferableDocument(initialText: logger.convertToString())
     }
+    
+    @available(iOS 16, *)
+    var sd: simpleDocument
+    {
+        return simpleDocument(context: logger.convertToString())
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -36,6 +43,14 @@ struct InformationView: View {
                 }
                 
                 Section {
+                    
+//                    if #available(iOS 16, *), AppInformation.debug
+//                    {
+//                        ShareLink(item: sd ,preview: SharePreview("logfile")) {
+//                            Text("Export")
+//                        }
+//                    }
+                    
                     Button {
                         showFileExporter.toggle()
                         logger.log("Logfile exported")
@@ -46,6 +61,7 @@ struct InformationView: View {
                     } label: {
                         LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
                     }
+                    
                     
                     Link(destination: urlPrivacy)
                     {
@@ -70,6 +86,22 @@ struct InformationView: View {
                     Text("© Patrick Fezer")
                 }
                 
+                if AppInformation.debug
+                {
+                    Section {
+                        Button("Clear Logfile")
+                        {
+                            logger.clearLogfile()
+                        }
+                        
+                        Button("Print all entries")
+                        {
+                            logger.printAllEntries()
+                        }
+                    } header: {
+                        Text("Debug")
+                    }
+                }
             }
             .navigationTitle(Text("App Information"))
             .navigationBarTitleDisplayMode(.inline)
@@ -83,8 +115,7 @@ struct InformationView: View {
                     }
                 }
             }
-            
-            .fileExporter(isPresented: $showFileExporter, document: document, contentType: .log, defaultFilename: "log_BAST.log") { result in
+            .fileExporter(isPresented: $showFileExporter, document: document, contentType: .text, defaultFilename: "log_BAST.log") { result in
                 print("File exporter started")
             }
         }

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-class TextLogger
+class TextLogger: ObservableObject
 {
     private var logLimit = 1000 // Limit of the log entries
     private var saveKey = "saveKeyTextLogger" // Save key for UserDefaults
@@ -17,6 +18,7 @@ class TextLogger
     private func save()
     {
         UserDefaults.standard.set(logs, forKey: saveKey)
+        print("Saved Logfile")
     }
     
     // Write a string to logs
@@ -37,12 +39,21 @@ class TextLogger
         
         // save logs
         save()
+        
+        print(entry)
     }
     
     public func clearLogfile()
     {
         logs.removeAll()
         save()
+    }
+    
+    public func printAllEntries()
+    {
+        logs.forEach { entry in
+            print(entry)
+        }
     }
     
     public func convertToString() -> String
@@ -53,6 +64,7 @@ class TextLogger
             ret += entry + "\n"
         }
         
+        
         return ret
     }
     
@@ -61,5 +73,6 @@ class TextLogger
     {
         // Read stored values from UserDefauts
         logs = UserDefaults.standard.array(forKey: saveKey) as? [String] ?? [""]
+        print("Logger initialized")
     }
 }

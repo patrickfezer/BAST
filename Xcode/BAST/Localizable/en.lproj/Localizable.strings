@@ -65,7 +65,7 @@ Min. Health = Current Cap./Maximum Cap.\n\n
 Orig. Health = Maximum Cap./Design Cap.";
 
 // Diffrent Capacities
-"diffrentCapHeader" = "What are the diffrent Capacities?";
+"diffrentCapHeader" = "What are the diffrent capacities?";
 "diffrentCapDesc" = "Current Cap.: The remaining capacity of the battery.\n
 Design Cap.: The factory capacity of the battery.\n
 Maximum Cap.: The max. capacity the battery could theoretically have.\n

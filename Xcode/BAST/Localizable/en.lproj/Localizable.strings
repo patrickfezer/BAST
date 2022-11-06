@@ -14,9 +14,9 @@
 
 "mailNotFoundWarningTitle" = "Apple Mail not found.";
 
-"loadFileMsg" = "Please import the latest log-aggregated file using the import Button left top site.\nUse the help Section on the right top site to get detailed information about the process";
+"loadFileMsg" = "Please import the latest \"Analytics-YYYY-MM-DD\"-file using the import Button left top site.\nUse the help Section on the right top site to get detailed information about the process";
 
-"wrongFileMsg" = "Please make sure to import the \"log-aggregated\"-file as .ips\nTo do so, just export the logfile to Files-App using the Share Button on the top right site after opened it.";
+"wrongFileMsg" = "Please make sure to import the \"Analytics-YYYY-MM-DD\"-file as .synced\nTo do so, just export the logfile to Files-App using the Share Button on the top right site after opened it.";
 
 
 // MARK: Instruction view
@@ -32,9 +32,9 @@
 
 "analysisData" = "Analysis Data";
 
-"searchFileMsg" = "Search and open the latest \"log-aggregated\" entry.\nPlease export the logfile to the Files-App using the Share Button on the top right side.";
+"searchFileMsg" = "Search and open the latest logfile named \"Analytics-YYYY-MM-DD\".\nPlease export the logfile to the Files-App using the Share Button on the top right side.";
 
-"importLogfileMsg" = "Import the \"log-aggregated\"-file into the App using the Import Button on the top left site.";
+"importLogfileMsg" = "Import the logfile into the App using the Import Button on the top left site.";
 
 "useFAQMsg" = "Please use the FAQ if you are facing any issues.";
 
@@ -44,17 +44,17 @@
 // MARK: FQA
 
 // Missing Values
-"missingValuesDesc" = "It often happens that values are not written correctly into the logfile. For example, the capacity of the device is shown as 200 mAh or other values are shown as 0. Unfortunately, you have to try loading other logfile versions of the \"log-aggregated\"-file until all values are available.";
+"missingValuesDesc" = "Please try to import another version of the \"Analytics-YYYY-MM-DD\"-file";
 
-"missingValuesHeader" = "Values are missing or wrong";
+"missingValuesHeader" = "Missing or strange values";
 
 // File cannot be opened
-"cannotOpenFileDesc" = "Please make sure to export the \"log-aggregated\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side.\nDo not copy the text inside! The import will only wotk if you export the logfile to the Files-App using the Share Button.";
+"cannotOpenFileDesc" = "Please make sure to export the \"Analytics-YYYY-MM-DD\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side.\nDo not copy the text inside! The import will only wotk if you export the logfile to the Files-App using the Share Button.";
 
 "cannotImportFileHeader" = "File cannot be imported";
 
 // Missing Logfile
-"logfileMissingHeader" = "\"log-aggregated\" not found";
+"logfileMissingHeader" = "\"Analytics-YYYY-MM-DD\" not found";
 
 "logfileMissingDesc" = "Please turn on \"Share iPhone Analytics\" and restart your Device. It can take up to 24h until the file will be generated.\nPlease note that logfiles perhabs contain personal information and will be sent to Apple if \"Share iPhone Analytics\" is activated.";
 
@@ -67,17 +67,16 @@ Orig. Health = Maximum Cap./Design Cap.";
 // Diffrent Capacities
 "diffrentCapHeader" = "What are the diffrent capacities?";
 "diffrentCapDesc" = "Current Cap.: The remaining capacity of the battery.\n
-Design Cap.: The factory capacity of the battery.\n
 Maximum Cap.: The max. capacity the battery could theoretically have.\n
 Minimum Cap.: The minimum capacity the battery could theoretically have.\n
 Cycle Count: Indicates how often the battery has been charged.";
 
-// Content View
+// MARK: Content View
 "headerUserGuide" = "User Guide";
 "headerBatteryHealth" = "Battery Health";
 "import" = "Import";
 "healthHeader" = "Health";
-"capacityCyclesHeader" = "Capacity & Cycles";
+"capacityCyclesHeader" = "Capacity";
 
 // MARK: InformationView
 "infoHeader" = "Information";

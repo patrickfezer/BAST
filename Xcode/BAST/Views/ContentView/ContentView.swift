@@ -24,9 +24,9 @@ struct ContentView: View {
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
     
     
-    var bm: BatteryManager
+    var bm: BatteryMangerV2
     {
-        return BatteryManager(logger: logger)
+        return BatteryMangerV2(logger)
     }
     
     var body: some View {
@@ -38,29 +38,26 @@ struct ContentView: View {
                 {
                     List
                     {
-                        // Capacity and Cycles
+                        Section("headerBatteryHealth")
+                        {
+                            bm.batteryKeyAsText(data: file, label: "Health", key: .capacity)
+                            bm.batteryKeyAsText(data: file, label: "Cycle Count", key: .cycleCount)
+                        }
+                        
                         Section("capacityCyclesHeader")
                         {
-                            bm.batteryKeyAsText(data: file, label: "Current Capacity", key1: .nominalChargeCapacity, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Design Capacity", key1: .designCapacity, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Maximum Capacity", key1: .maxFCC, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Minimum Capacity", key1: .minFCC, key2: nil)
-                            bm.batteryKeyAsText(data: file, label: "Cycle Count", key1: .cycleCount, key2: nil)
+                            bm.batteryKeyAsText(data: file, label: "Current Capacity", key: .nominalCapacity)
+                            bm.batteryKeyAsText(data: file, label: "Maximum Capacity", key: .maxFCC)
+                            bm.batteryKeyAsText(data: file, label: "Minimum Capacity", key: .minFCC)
                         }
                         
-                        // Battery health
-                        Section("healthHeader")
+                         //Disclaimer
+                        Section
                         {
-                            bm.batteryKeyAsText(data: file, label: "Current Health", key1: .nominalChargeCapacity, key2: .designCapacity)
-                            bm.batteryKeyAsText(data: file, label: "Minimum Health", key1: .nominalChargeCapacity, key2: .maxFCC)
-                            bm.batteryKeyAsText(data: file, label: "Original Health", key1: .maxFCC, key2: .designCapacity)
-                        }
-                        
-                        // Disclaimer
-                        Section {
                             Text("disclaimer")
                         } header: {
                             Text("disclaimerHeader")
+                            
                         }
                     }
                 } else
@@ -209,7 +206,7 @@ struct ContentView: View {
                         selectedFile.stopAccessingSecurityScopedResource()
                         
                         // check if imported file is correct
-                        if selectedFile.pathExtension != "ips"
+                        if selectedFile.pathExtension != "synced"
                         {
                             wrongFileAlert.toggle()
                             self.file = Data() // reset file
@@ -239,5 +236,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .previewDevice("iPhone 14 Pro")
             .preferredColorScheme(.dark)
+            .environmentObject(TextLogger())
     }
 }

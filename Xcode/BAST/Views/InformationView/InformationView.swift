@@ -125,5 +125,6 @@ struct InformationView: View {
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView(dismiss: .constant(false))
+            .environmentObject(TextLogger())
     }
 }

@@ -45,8 +45,6 @@ struct TransferableDocument: FileDocument {
     
 }
 
-// Extension for iOS 16 and later to make Documaent transferable (ShareLink)
-@available(iOS 16, *)
 extension TransferableDocument: Transferable
 {
     
@@ -67,17 +65,17 @@ extension TransferableDocument: Transferable
 
 
 // --- Test ---
-@available(iOS 16, *)
 struct simpleDocument: Transferable
 {
     static var transferRepresentation: some TransferRepresentation
     {
         DataRepresentation(contentType: .text) { file in
             file.data()
-        } importing: { data in
-            simpleDocument(data: data)
+        } importing: { file in
+            simpleDocument(data: file)
         }
     }
+    
     var context: String
     
     init(context: String)

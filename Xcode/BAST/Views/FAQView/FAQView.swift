@@ -23,7 +23,7 @@ struct FAQView: View {
  
                 FAQListView(header: Text("logfileMissingHeader"), content: Text("logfileMissingDesc"))
                 
-                FAQListView(header: Text("healthCalcHeader"), content: Text("healthCalcDesc"))
+                // FAQListView(header: Text("healthCalcHeader"), content: Text("healthCalcDesc"))
                 
                 FAQListView(header: Text("diffrentCapHeader"), content: Text("diffrentCapDesc"))
 

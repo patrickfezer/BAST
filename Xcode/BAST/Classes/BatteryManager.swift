@@ -4,6 +4,7 @@
 //
 //  Created by Patrick Fezer on 23.08.22.
 //
+// Old version Used for iOS 15
 
 import Foundation
 import SwiftUI
@@ -30,6 +31,7 @@ class BatteryManager
         let lengthKey = key.rawValue.count // length of the key
         let keyAsData = key.rawValue.data(using: .utf8)!
 
+    
         // Read file
         for i in 0..<item.count
         {

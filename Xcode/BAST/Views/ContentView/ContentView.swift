@@ -16,9 +16,11 @@ struct ContentView: View {
     @State private var showMailAlert = false
     @State private var showFAQSheet = false
     @State private var wrongFileAlert = false
+    @State private var missingValuesAlert = false
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
     @State private var file = Data()
+    @State private var batteryValues: [BatteryMangerV2.keys : Int] = [.capacity : 0] // set default value to 0
     @EnvironmentObject var logger: TextLogger
     
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
@@ -40,32 +42,36 @@ struct ContentView: View {
                     {
                         Section("headerBatteryHealth")
                         {
-                            bm.batteryKeyAsText(data: file, label: "Health", key: .capacity)
-                            bm.batteryKeyAsText(data: file, label: "Cycle Count", key: .cycleCount)
+                            bm.batteryKeyView(label: "Health", value: batteryValues, key: .capacity)
+                            bm.batteryKeyView(label: "Cycle Count", value: batteryValues, key: .cycleCount)
                         }
                         
                         Section("capacityCyclesHeader")
                         {
-                            bm.batteryKeyAsText(data: file, label: "Current Capacity", key: .nominalCapacity)
-                            bm.batteryKeyAsText(data: file, label: "Maximum Capacity", key: .maxFCC)
-                            bm.batteryKeyAsText(data: file, label: "Minimum Capacity", key: .minFCC)
-                        }
-                        
-                         //Disclaimer
-                        Section
-                        {
-                            Text("disclaimer")
-                        } header: {
-                            Text("disclaimerHeader")
+                            bm.batteryKeyView(label: "Current Capacity", value: batteryValues, key: .NCC)
+                            
+                            // Show minNCC and maxFCC only if values are greater then 0
+                            if batteryValues[.minNCC]! > 0 && batteryValues[.maxNCC]! > 0
+                            {
+                                bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .minNCC)
+                                bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .maxNCC)
+                            }
                             
                         }
+                        // Disclaimer
+                        Section("disclaimerHeader")
+                        {
+                            Text("disclaimer")
+                        }
                     }
+                    
                 } else
                 {
                     // InstructionView if File is emty
                     InstructionView()
                 }
             }
+            
                 .navigationTitle(header)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {
@@ -79,7 +85,11 @@ struct ContentView: View {
                         {
                             Text("import")
                         }
-
+                        // Wrong File imported
+                        .alert(isPresented: $wrongFileAlert)
+                        {
+                            Alert(title: Text("wrongFileWarningTitle"), message: Text("wrongFileMsg"), dismissButton: .default(Text("Ok")))
+                        }
                     }
                     
                     // Help Button
@@ -89,7 +99,6 @@ struct ContentView: View {
                         {
                             if !file.isEmpty
                             {
-                                
                                 // User Guide
                                 Button
                                 {
@@ -101,7 +110,6 @@ struct ContentView: View {
                                 }
                             }
 
-                            
                             // InformationSheet
                             Button
                             {
@@ -111,7 +119,6 @@ struct ContentView: View {
                                 Label("Info", systemImage: "info.circle.fill")
                             }
                             
-                            
                             // FAQSheet
                             Button {
                                 showFAQSheet.toggle()
@@ -120,7 +127,6 @@ struct ContentView: View {
                                 Label("FAQ", systemImage: "person.fill.questionmark")
                             }
 
-                            
                             // MailSheet
                             Button {
                                 if MFMailComposeViewController.canSendMail()
@@ -134,6 +140,10 @@ struct ContentView: View {
                                 }
                             } label: {
                                 Label("contact", systemImage: "envelope.fill")
+                            }
+                            // Missing Mail App
+                            .alert(isPresented: $showMailAlert) {
+                                Alert(title: Text("mailNotFoundWarningTitle"), message: Text("mailNotFoundWarningDescription"), dismissButton: .default(Text("Ok")))
                             }
  
                         } label: {
@@ -171,16 +181,13 @@ struct ContentView: View {
                     .interactiveDismissDisabled()
             })
             
-            // Missing Mail App
-            .alert(isPresented: $showMailAlert) {
-                Alert(title: Text("mailNotFoundWarningTitle"), message: Text("mailNotFoundWarningDescription"), dismissButton: .default(Text("Ok")))
+            
+            // Missing Battery values in logfile
+            .alert(isPresented: $missingValuesAlert)
+            {
+                Alert(title: Text("missingValuesWarningTitle"), message: Text("missingValuesMsg"))
             }
             
-            // Wrong File imported
-            .alert(isPresented: $wrongFileAlert)
-            {
-                Alert(title: Text("wrongFileWarningTitle"), message: Text("wrongFileMsg"), dismissButton: .default(Text("Ok")))
-            }
             
             .fileImporter(isPresented: $showImportView, allowedContentTypes: [.item], allowsMultipleSelection: false, onCompletion: { result in
                 
@@ -208,16 +215,23 @@ struct ContentView: View {
                         // check if imported file is correct
                         if selectedFile.pathExtension != "synced"
                         {
-                            wrongFileAlert.toggle()
+                            wrongFileAlert = true
                             self.file = Data() // reset file
                             
                             // Log warning
                             logger.log("Wrong file extension. Extension is: \(selectedFile.pathExtension)")
                         } else
                         {
-                            // set file to data
+                            // Set file to data
                             self.file = data
-                            logger.log("File sucessfully imported")
+                            self.batteryValues = bm.getBatteryValues(file: data)
+                            
+                            // Check if a values are missing
+                            if batteryValues[.capacity] == 0 || batteryValues[.cycleCount] == 0 || batteryValues[.NCC] == 0
+                            {
+                                missingValuesAlert = true
+                                self.file = Data()
+                            }
                         }
                         
                     } catch

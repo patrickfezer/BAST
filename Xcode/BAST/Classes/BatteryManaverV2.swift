@@ -17,12 +17,29 @@ class BatteryMangerV2
     {
         case capacity = "last_value_MaximumCapacityPercent"
         case cycleCount = "last_value_CycleCount"
-        case nominalCapacity = "last_value_NominalChargeCapacity"
-        case minFCC = "last_value_MinimumFCC"
-        case maxFCC = "last_value_MaximumFCC"
+        case NCC = "last_value_NominalChargeCapacity"
+        case minNCC = "last_value_NCCMin"
+        case maxNCC = "last_value_NCCMax"
     }
     
-    private func batteryKey(key: keys, item: Data) -> Int
+    
+    public func getBatteryValues(file: Data) -> [keys : Int]
+    {
+        let allKeys: [keys] = [.cycleCount, .NCC, .minNCC, .maxNCC]
+        
+        var ret: [keys : Int] = [.capacity : batteryKey(key: .capacity, item: file)]
+        
+        
+        allKeys.forEach { key in
+            ret[key] = batteryKey(key: key, item: file)
+        }
+        
+        return ret
+    }
+    
+    
+    // Returns an Int appending to the enum's key
+    public func batteryKey(key: keys, item: Data) -> Int
     {
         var ret = 0
         var indexCounter = 0
@@ -32,6 +49,7 @@ class BatteryMangerV2
         // read file
         for i in 0..<item.count
         {
+
             // indexCounter handling
             if item[i] == keyAsData[indexCounter]
             {
@@ -87,12 +105,12 @@ class BatteryMangerV2
         return ret
     }
     
-    
-    // Create Text View
-    public func batteryKeyAsText(data: Data, label: String, key: keys) -> some View
+    // Create View for List Entry
+    public func batteryKeyView(label: String, value: [keys:Int], key: keys) -> some View
     {
-        let batteryKey = batteryKey(key: key, item: data)
         
+        let batteryValue = value[key] ?? 0
+    
         // Convert Value to string
         var value: String
         {
@@ -100,13 +118,13 @@ class BatteryMangerV2
             switch key
             {
             case .capacity:
-                ret = String(batteryKey) + "%"
+                ret = String(batteryValue) + "%"
                 break
             case .cycleCount:
-                ret = String(batteryKey)
+                ret = String(batteryValue)
                 break
             default:
-                ret = String(batteryKey) + " mAh"
+                ret = String(batteryValue) + " mAh"
                 break
             }
             
@@ -122,7 +140,7 @@ class BatteryMangerV2
         }
     }
     
-    // Initializer+
+    // Initializer
     init(_ logger: TextLogger)
     {
         self.logger = logger

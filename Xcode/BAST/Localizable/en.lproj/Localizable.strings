@@ -24,6 +24,8 @@
 
 "wrongFileWarningTitle" = "Wrong file extension";
 
+"missingValuesWarningTitle" = "Missing battery values";
+
 "openSettings" = "Open Settings";
 
 "privacySecurity" = "Privacy & Security";
@@ -31,6 +33,8 @@
 "analysisImprovement" = "Analytics & Improvements";
 
 "analysisData" = "Analysis Data";
+
+"missingValuesMsg" = "The logfile does not contain all battery information.\nPlease try importing another version of \"Analytics-YYYY-MM-DD\"";
 
 "searchFileMsg" = "Search and open the latest logfile named \"Analytics-YYYY-MM-DD\".\nPlease export the logfile to the Files-App using the Share Button on the top right side.";
 

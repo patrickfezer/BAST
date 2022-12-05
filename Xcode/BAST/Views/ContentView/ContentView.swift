@@ -53,8 +53,8 @@ struct ContentView: View {
                             // Show minNCC and maxFCC only if values are greater then 0
                             if batteryValues[.minNCC]! > 0 && batteryValues[.maxNCC]! > 0
                             {
-                                bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .minNCC)
-                                bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .maxNCC)
+                                bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .maxNCC)
+                                bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .minNCC)
                             }
                             
                         }
@@ -226,7 +226,7 @@ struct ContentView: View {
                             self.file = data
                             self.batteryValues = bm.getBatteryValues(file: data)
                             
-                            // Check if a values are missing
+                            // Check if a value is missing
                             if batteryValues[.capacity] == 0 || batteryValues[.cycleCount] == 0 || batteryValues[.NCC] == 0
                             {
                                 missingValuesAlert = true

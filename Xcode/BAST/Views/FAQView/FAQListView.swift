@@ -44,7 +44,7 @@ struct FAQListView: View {
             }
             
         }
-        .padding(20)
+        .padding(15)
     }
 }
 

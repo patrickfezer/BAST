@@ -54,7 +54,7 @@ extension TransferableDocument: Transferable
         DataRepresentation(exportedContentType: .text) { file in
             file.data()
         }
-//        .suggestedFileName("filename.txt")
+//        .suggestedFileName("Bast_logfile.txt")
     }
 
     func data() -> Data

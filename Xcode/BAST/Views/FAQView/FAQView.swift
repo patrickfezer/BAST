@@ -16,6 +16,8 @@ struct FAQView: View {
             {
                 
                 FAQListView(header: Text("missingValuesHeader"), content: Text("missingValuesDesc"))
+                
+                FAQListView(header: Text("strangeValuesHeader"), content: Text("strangeValuesDesc"))
 
 
                 FAQListView(header: Text("cannotImportFileHeader"), content: Text("cannotOpenFileDesc"))
@@ -25,7 +27,7 @@ struct FAQView: View {
                 
                 // FAQListView(header: Text("healthCalcHeader"), content: Text("healthCalcDesc"))
                 
-                FAQListView(header: Text("diffrentCapHeader"), content: Text("diffrentCapDesc"))
+                FAQListView(header: Text("diffrentValuesHeader"), content: Text("diffrentValuesDesc"))
 
             }
             .navigationBarTitleDisplayMode(.inline)

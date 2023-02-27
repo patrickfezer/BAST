@@ -48,9 +48,14 @@
 // MARK: FQA
 
 // Missing Values
-"missingValuesDesc" = "Please try to import another version of the \"Analytics-YYYY-MM-DD\"-file";
+"missingValuesDesc" = "Please try to import another version of the \"Analytics-YYYY-MM-DD\"-file.";
 
-"missingValuesHeader" = "Missing or strange values";
+"missingValuesHeader" = "Warning due to missing values";
+
+// Strange Values - Apple Watch Warning
+"strangeValuesHeader" = "App displays inappropriate values";
+
+"strangeValuesDesc" = "If you are using an Apple Watch, there will be two versions of the \"Analytics-YYYY-MM-DD\"-file created. One belongs to the iPhone/iPad, the other one to the Apple Watch.\nIf the app displays inappropriate values, this is likely because the imported logfile belongs to the Apple Watch.";
 
 // File cannot be opened
 "cannotOpenFileDesc" = "Please make sure to export the \"Analytics-YYYY-MM-DD\"-file correctly. To do so, open the entry found on Settings and use the Share Button on the top right side.\nDo not copy the text inside! The import will only wotk if you export the logfile to the Files-App using the Share Button.";
@@ -62,18 +67,15 @@
 
 "logfileMissingDesc" = "Please turn on \"Share iPhone Analytics\" and restart your Device. It can take up to 24h until the file will be generated.\nPlease note that logfiles perhabs contain personal information and will be sent to Apple if \"Share iPhone Analytics\" is activated.";
 
-// How is Helath calculated
-"healthCalcHeader" = "How is health calculated?";
-"healthCalcDesc" = "Current Health = Current Cap./Design Cap.\n\n
-Min. Health = Current Cap./Maximum Cap.\n\n
-Orig. Health = Maximum Cap./Design Cap.";
 
-// Diffrent Capacities
-"diffrentCapHeader" = "What are the diffrent capacities?";
-"diffrentCapDesc" = "Current Cap.: The remaining capacity of the battery.\n
-Maximum Cap.: The max. capacity the battery could theoretically have.\n
-Minimum Cap.: The minimum capacity the battery could theoretically have.\n
-Cycle Count: Indicates how often the battery has been charged.";
+// Diffrent Values
+"diffrentValuesHeader" = "What are the diffrent values?";
+
+"diffrentValuesDesc" = "Health: Indicates the battery health in percentage.\n
+Cycle Count: Indicates how often the battery has been charged.\n
+Current Cap.: The remaining capacity of the battery.\n
+Maximum Cap.: The maximum capacity the battery could theoretically have.\n
+Minimum Cap.: The minimum capacity the battery could theoretically have.";
 
 // MARK: Content View
 "headerUserGuide" = "User Guide";

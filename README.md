@@ -19,4 +19,4 @@ BAST: Battery Status is a simple to use Battery Diagnostic tool providing you ad
 7. Please use the FAQ section inside the App if you are facing any issues.
 
 
-** The displayed values are based on the imported Logfile values. It cannot be guaranteed these values consist to the real battery values. **
+**The displayed values are based on the imported Logfile values. It cannot be guaranteed these values consist to the real battery values.**

@@ -69,7 +69,7 @@
 
 
 // Diffrent Values
-"diffrentValuesHeader" = "What are the diffrent values?";
+"diffrentValuesHeader" = "What are the different values?";
 
 "diffrentValuesDesc" = "Health: Indicates the battery health in percentage.\n
 Cycle Count: Indicates how often the battery has been charged.\n

@@ -1,14 +1,14 @@
-#What is BAST? 
+# What is BAST? 
 BAST: Battery Status is a simple to use Battery Diagnostic tool providing you advanced information about your battery. These information include
 
-*Current Capacity
-*Design Capacity
-*Max. Capacity
-*Min. Capacity
-*Cycle Count
-*Health
+* Current Capacity
+* Design Capacity
+* Max. Capacity
+* Min. Capacity
+* Cycle Count
+* Health
 
-##BAST is simple to use
+## BAST is simple to use
 
 1. Open Settings
 2. Privacy & Security

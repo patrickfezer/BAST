@@ -48,17 +48,18 @@ struct InformationView: View {
                         LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
                     }
                     
+// MARK: Adding a function to log values when using a Share link...
                     
-                    Button {
-                        showFileExporter.toggle()
-                        logger.log("Logfile exported")
-                        logger.log("App Version: " + AppInformation.appVersion)
-                        logger.log("Build Version: " + AppInformation.buildVersion)
-                        logger.log("Device: " + AppInformation.device)
-                        logger.log("System Version: " + AppInformation.systemVersion)
-                    } label: {
-                        LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
-                    }
+//                    Button {
+//                        showFileExporter.toggle()
+//                        logger.log("Logfile exported")
+//                        logger.log("App Version: " + AppInformation.appVersion)
+//                        logger.log("Build Version: " + AppInformation.buildVersion)
+//                        logger.log("Device: " + AppInformation.device)
+//                        logger.log("System Version: " + AppInformation.systemVersion)
+//                    } label: {
+//                        LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
+//                    }
                     
                     
                     Link(destination: urlPrivacy)

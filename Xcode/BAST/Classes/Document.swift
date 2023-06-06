@@ -54,7 +54,7 @@ extension TransferableDocument: Transferable
         DataRepresentation(exportedContentType: .text) { file in
             file.data()
         }
-//        .suggestedFileName("Bast_logfile.txt")
+        .suggestedFileName("Bast_logfile.log")
     }
 
     func data() -> Data
@@ -64,7 +64,7 @@ extension TransferableDocument: Transferable
 }
 
 
-// --- Test ---
+// --- Alternative implementation of the document ---
 struct simpleDocument: Transferable
 {
     static var transferRepresentation: some TransferRepresentation
@@ -74,6 +74,7 @@ struct simpleDocument: Transferable
         } importing: { file in
             simpleDocument(data: file)
         }
+        .suggestedFileName("Bast_logfile.log")
     }
     
     var context: String

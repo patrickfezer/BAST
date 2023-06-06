@@ -44,12 +44,10 @@ struct InformationView: View {
                 
                 Section {
                     
-//                    if #available(iOS 16, *), AppInformation.debug
-//                    {
-//                        ShareLink(item: sd ,preview: SharePreview("logfile")) {
-//                            Text("Export")
-//                        }
-//                    }
+                    ShareLink(item: document ,preview: SharePreview("logfile")) {
+                        LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
+                    }
+                    
                     
                     Button {
                         showFileExporter.toggle()

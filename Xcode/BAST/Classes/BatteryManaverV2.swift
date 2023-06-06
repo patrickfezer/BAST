@@ -4,7 +4,7 @@
 //
 //  Created by Patrick Fezer on 05.11.22.
 //
-// New Version used for iOS 16
+// Description: New Version of the BatteryManager used for iOS 16.0 and alter
 
 import Foundation
 import SwiftUI

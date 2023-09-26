@@ -48,6 +48,7 @@ struct InformationView: View {
                         LabelIconView(icon: "square.and.arrow.up", iconColor: .white, backgroundColor: .orange, text: Text("exportLogfile"))
                     }
                     
+                    
 // MARK: Adding a function to log values when using a Share link...
                     
 //                    Button {

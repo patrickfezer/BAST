@@ -48,9 +48,9 @@
 // MARK: FQA
 
 // Missing Values
-"missingValuesDesc" = "Please try to import another version of the \"Analytics-YYYY-MM-DD\"-file.";
+"missingValuesDesc" = "It can often happen that not all battery values are stored in the \"Analytics-YYYY-MM-DD\"-file. Especially with older devices, it can occur that some values are not logged. If values are missing, please try importing a different version of the \"Analytics-YYYY-MM-DD\"-file.";
 
-"missingValuesHeader" = "Warning due to missing values";
+"missingValuesHeader" = "Missing battery values (n/A)";
 
 // Strange Values - Apple Watch Warning
 "strangeValuesHeader" = "App displays inappropriate values";

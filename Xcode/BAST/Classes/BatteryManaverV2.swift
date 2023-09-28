@@ -25,15 +25,13 @@ class BatteryMangerV2
     
     public func getBatteryValues(file: Data) -> [keys : Int]
     {
-        let allKeys: [keys] = [.cycleCount, .NCC, .minNCC, .maxNCC]
+        let allKeys: [keys] = [.capacity, .cycleCount, .NCC, .minNCC, .maxNCC]
         
-        var ret: [keys : Int] = [.capacity : batteryKey(key: .capacity, item: file)]
-        
+        var ret = [keys : Int]()
         
         allKeys.forEach { key in
             ret[key] = batteryKey(key: key, item: file)
         }
-        
         return ret
     }
     
@@ -96,7 +94,7 @@ class BatteryMangerV2
                 // log value if 0
                 if ret == 0
                 {
-                    logger.log("Value not found: \(key.rawValue) = \(ret)")
+                    logger.log("Value not found: \(key.rawValue)")
                 }
                 break // break i loop
             }
@@ -126,6 +124,12 @@ class BatteryMangerV2
             default:
                 ret = String(batteryValue) + " mAh"
                 break
+            }
+            
+            // Value is unvalid if zero, cycle count exceptet.
+            if batteryValue == 0 && key != keys.cycleCount
+            {
+                ret = "n/A"
             }
             
             return ret

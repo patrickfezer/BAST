@@ -25,7 +25,8 @@ struct FAQListView: View {
                         .foregroundColor(.blue)
             }
             .padding(.bottom, 10)
-                
+            
+            
             if !collapsed
             {
                 HStack
@@ -34,15 +35,13 @@ struct FAQListView: View {
                     Spacer()
                 }
             }
-                
         }
         .onTapGesture
         {
-            withAnimation
+            withAnimation(.easeInOut(duration: 0.5))
             {
                 collapsed.toggle()
             }
-            
         }
         .padding(15)
     }

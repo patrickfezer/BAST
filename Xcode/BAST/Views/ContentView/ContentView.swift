@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
     @State private var file = Data()
-    @State private var batteryValues: [BatteryMangerV2.keys : Int] = [.capacity : 0] // set default value to 0
+    @State private var batteryValues = [BatteryMangerV2.keys : Int]()
     @EnvironmentObject var logger: TextLogger
     
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
@@ -50,12 +50,9 @@ struct ContentView: View {
                         {
                             bm.batteryKeyView(label: "Current Capacity", value: batteryValues, key: .NCC)
                             
-                            // Show minNCC and maxFCC only if values are greater then 0
-                            if batteryValues[.minNCC]! > 0 && batteryValues[.maxNCC]! > 0
-                            {
-                                bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .maxNCC)
-                                bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .minNCC)
-                            }
+                            bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .maxNCC)
+                                
+                            bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .minNCC)
                             
                         }
                         // Disclaimer
@@ -120,8 +117,7 @@ struct ContentView: View {
                             }
                             
                             // FAQSheet
-                            Button {
-                                showFAQSheet.toggle()
+                            Button {                                showFAQSheet.toggle()
                                 logger.log("Read FAQ")
                             } label: {
                                 Label("FAQ", systemImage: "person.fill.questionmark")
@@ -227,11 +223,11 @@ struct ContentView: View {
                             self.batteryValues = bm.getBatteryValues(file: data)
                             
                             // Check if a value is missing
-                            if batteryValues[.capacity] == 0 || batteryValues[.cycleCount] == 0 || batteryValues[.NCC] == 0
-                            {
-                                missingValuesAlert = true
-                                self.file = Data()
-                            }
+//                            if batteryValues[.capacity] == 0 || batteryValues[.cycleCount] == 0 || batteryValues[.NCC] == 0
+//                            {
+//                                missingValuesAlert = true
+//                                self.file = Data()
+//                            }
                         }
                         
                     } catch

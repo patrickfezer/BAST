@@ -14,15 +14,14 @@ struct InformationView: View {
     let urlPrivacy = URL(string: "https://www.fezerapps.com/bast-privacy")!
     let urlWebsite = URL(string: "https://www.fezerapps.com")!
     
-    var document: TransferableDocument
-    {
-        return TransferableDocument(initialText: logger.convertToString())
-    }
+//    var document: TransferableDocument
+//    {
+//        return TransferableDocument(initialText: logger.convertToString())
+//    }
     
-    @available(iOS 16, *)
-    var sd: simpleDocument
+    var document: TransferableTextFile
     {
-        return simpleDocument(context: logger.convertToString())
+        return TransferableTextFile(context: logger.convertToString())
     }
     
     
@@ -115,9 +114,9 @@ struct InformationView: View {
                     }
                 }
             }
-            .fileExporter(isPresented: $showFileExporter, document: document, contentType: .text, defaultFilename: "log_BAST.log") { result in
-                print("File exporter started")
-            }
+//            .fileExporter(isPresented: $showFileExporter, document: document, contentType: .text, defaultFilename: "log_BAST.log") { result in
+//                print("File exporter started")
+//            }
         }
     }
 }

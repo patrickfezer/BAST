@@ -40,9 +40,6 @@ struct TransferableDocument: FileDocument {
         let data = Data(text.utf8)
         return FileWrapper(regularFileWithContents: data)
     }
-    
-    
-    
 }
 
 extension TransferableDocument: Transferable
@@ -65,14 +62,14 @@ extension TransferableDocument: Transferable
 
 
 // --- Alternative implementation of the document ---
-struct simpleDocument: Transferable
+struct TransferableTextFile: Transferable
 {
     static var transferRepresentation: some TransferRepresentation
     {
         DataRepresentation(contentType: .text) { file in
             file.data()
         } importing: { file in
-            simpleDocument(data: file)
+            TransferableTextFile(data: file)
         }
         .suggestedFileName("Bast_logfile.log")
     }

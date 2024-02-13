@@ -63,8 +63,7 @@ class TextLogger: ObservableObject
         logs.forEach { entry in
             ret += entry + "\n"
         }
-        
-        
+
         return ret
     }
     

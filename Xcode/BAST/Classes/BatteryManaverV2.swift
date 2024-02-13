@@ -49,13 +49,7 @@ class BatteryMangerV2
         {
 
             // indexCounter handling
-            if item[i] == keyAsData[indexCounter]
-            {
-                indexCounter += 1 // increase indexCounter
-            } else
-            {
-                indexCounter = 0 // reset indexCoounter
-            }
+            item[i] == keyAsData[indexCounter] ? (indexCounter += 1) : (indexCounter = 0)
 
             // Match
             if indexCounter == lengthKey
@@ -90,17 +84,14 @@ class BatteryMangerV2
                 let data = item.subdata(in: range) // create subdata
                 let DataAsString = String(decoding: data, as: UTF8.self) // convert to String
                 ret = Int(DataAsString) ?? 0 // convert to Int
-
-                // log value if 0
-                if ret == 0
-                {
-                    logger.log("Value not found: \(key.rawValue)")
-                }
+                ret == 0 ? logger.log("Value not found: \(key.rawValue)") : () // log value is result is 0
+                
                 break // break i loop
             }
         }
-        // return Value
-        return ret
+        
+        // check if battery health is over 100% and return value
+        return (key == keys.capacity && ret > 100) ? 100 : ret
     }
     
     // Create View for List Entry
@@ -127,12 +118,7 @@ class BatteryMangerV2
             }
             
             // Value is unvalid if zero, cycle count exceptet.
-            if batteryValue == 0 && key != keys.cycleCount
-            {
-                ret = "n/A"
-            }
-            
-            return ret
+            return (batteryValue == 0 && key != keys.cycleCount) ? "n/A" : ret
         }
         
         // Return View

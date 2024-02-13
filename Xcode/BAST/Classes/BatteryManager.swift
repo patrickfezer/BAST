@@ -4,7 +4,7 @@
 //
 //  Created by Patrick Fezer on 23.08.22.
 //
-// Old version Used for iOS 15
+// Description: Old version Used for iOS 15
 
 import Foundation
 import SwiftUI

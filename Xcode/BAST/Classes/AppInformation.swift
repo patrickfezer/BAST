@@ -15,4 +15,5 @@ class AppInformation
     public static let systemVersion = UIDevice.current.systemName + ": " + UIDevice.current.systemVersion
     public static let device = UIDevice.current.model
     public static let debug = false
+    public static let expertModeKey = "expertMode"
 }

@@ -8,6 +8,7 @@
 
 // MARK: Default key words
 "close" = "Close";
+"help" = "Help";
 
 // MARK: Warnings
 "mailNotFoundWarningDescription" = "You need the original Apple Mail App to use this function.";
@@ -18,13 +19,23 @@
 
 "wrongFileMsg" = "Please make sure to import the \"Analytics-YYYY-MM-DD\"-file as .synced\nTo do so, just export the logfile to Files-App using the Share Button on the top right site after opened it.";
 
-
-// MARK: Instruction view
-"userGuide" = "User Guide";
-
 "wrongFileWarningTitle" = "Wrong file extension";
 
 "missingValuesWarningTitle" = "Missing battery values";
+
+// MARK: Content View
+"headerUserGuide" = "User Guide";
+
+"headerBatteryHealth" = "Battery Health";
+
+"import" = "Import";
+
+"healthHeader" = "Health";
+
+"capacityCyclesHeader" = "Capacity";
+
+// MARK: Instruction view
+"userGuide" = "User Guide";
 
 "openSettings" = "Open Settings";
 
@@ -40,9 +51,10 @@
 
 "importLogfileMsg" = "Import the logfile into the App using the Import Button on the top left site.";
 
+"expertModeMsg" = "Enable Expert Mode in settings for more detailed battery health insights (Optional).";
+
 "useFAQMsg" = "Please use the FAQ if you are facing any issues.";
 
-"help" = "Help";
 
 
 // MARK: FQA
@@ -77,12 +89,6 @@ Current Cap.: The remaining capacity of the battery.\n
 Maximum Cap.: The maximum capacity the battery could theoretically have.\n
 Minimum Cap.: The minimum capacity the battery could theoretically have.";
 
-// MARK: Content View
-"headerUserGuide" = "User Guide";
-"headerBatteryHealth" = "Battery Health";
-"import" = "Import";
-"healthHeader" = "Health";
-"capacityCyclesHeader" = "Capacity";
 
 // MARK: InformationView
 "infoHeader" = "Information";
@@ -94,4 +100,10 @@ Minimum Cap.: The minimum capacity the battery could theoretically have.";
 "developer" = "Developer";
 "disclaimer" = "The displayed information are based on the imported logfile values.\nIt can't be guaranteed that these values consist to the real battery values.";
 "disclaimerHeader" = "Disclaimer";
+
+// MARK: Settings
+"expertModeButton" = "Expert Mode";
+"expertModeDesc" = "Activate Expert Mode to access additional details about your battery. These insights encompass more comprehensive information regarding battery health and extended capacity metrics.";
+"expertModeHeader" = "Expert Mode";
+"settings" = "Settigns";
 

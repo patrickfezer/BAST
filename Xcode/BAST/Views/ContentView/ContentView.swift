@@ -15,12 +15,14 @@ struct ContentView: View {
     @State private var showMailSheet = false
     @State private var showMailAlert = false
     @State private var showFAQSheet = false
+    @State private var showSettingsSheet = false
     @State private var wrongFileAlert = false
     @State private var missingValuesAlert = false
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
     @State private var file = Data()
     @State private var batteryValues = [BatteryMangerV2.keys : Int]()
+    @AppStorage(AppInformation.expertModeKey) private var expertMode = false
     @EnvironmentObject var logger: TextLogger
     
     let appInformationString = "\n\n________________\nVersion: \(AppInformation.appVersion + " (\(AppInformation.buildVersion))")\nDevice: \(AppInformation.device)\n \(AppInformation.systemVersion)"
@@ -46,20 +48,29 @@ struct ContentView: View {
                             bm.batteryKeyView(label: "Cycle Count", value: batteryValues, key: .cycleCount)
                         }
                         
-                        Section("capacityCyclesHeader")
+                        Section
                         {
                             bm.batteryKeyView(label: "Current Capacity", value: batteryValues, key: .NCC)
                             
-                            bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .maxNCC)
-                                
-                            bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .minNCC)
+                            if expertMode {
+                                bm.batteryKeyView(label: "Maximum Capacity", value: batteryValues, key: .maxNCC)
+                                    
+                                bm.batteryKeyView(label: "Minimum Capacity", value: batteryValues, key: .minNCC)
+                            }
                             
+                            
+                        } header: {
+                            Text("capacityCyclesHeader")
                         }
-                        // Disclaimer
-                        Section("disclaimerHeader")
-                        {
+                        
+                        Section {
+                            
+                        } header: {
+                            Text("disclaimerHeader")
+                        } footer: {
                             Text("disclaimer")
                         }
+
                     }
                     
                 } else
@@ -137,9 +148,19 @@ struct ContentView: View {
                             } label: {
                                 Label("contact", systemImage: "envelope.fill")
                             }
+                            
                             // Missing Mail App
                             .alert(isPresented: $showMailAlert) {
                                 Alert(title: Text("mailNotFoundWarningTitle"), message: Text("mailNotFoundWarningDescription"), dismissButton: .default(Text("Ok")))
+                            }
+                            
+                            // SettingsSheet
+                            Button {
+                                showSettingsSheet.toggle()
+                                logger.log("Opened Settings")
+                                
+                            } label: {
+                                Label("settings", systemImage: "gear")
                             }
  
                         } label: {
@@ -147,6 +168,12 @@ struct ContentView: View {
                         }
                     }
                 })
+            
+            // Return to user guide if expert mode is triggert
+                .onChange(of: expertMode, perform: { newValue in
+                    self.file = Data()
+                })
+            
             
             // Trigger file change to change heaader value
             .onChange(of: file, perform: { newFileValue in
@@ -175,6 +202,13 @@ struct ContentView: View {
             .sheet(isPresented: $showFAQSheet, content: {
                 FAQView(dismiss: $showFAQSheet)
                     .interactiveDismissDisabled()
+            })
+            
+            // Settings Sheet
+            .sheet(isPresented: $showSettingsSheet, content: {
+                SettingsView(dismiss: $showSettingsSheet)
+                    .interactiveDismissDisabled()
+                
             })
             
             

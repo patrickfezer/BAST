@@ -15,6 +15,7 @@
 		5A1C703528D08DFF00FAC926 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C703428D08DFF00FAC926 /* Document.swift */; };
 		5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C45E28B783B900C972B7 /* LabelIconView.swift */; };
 		5A2D561E28B56E6900DEF4B2 /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */; };
+		5A456F292B7D5E65009D077A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A456F282B7D5E65009D077A /* SettingsView.swift */; };
 		5A49E85528B5572A0064361C /* BASTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85428B5572A0064361C /* BASTApp.swift */; };
 		5A49E85728B5572A0064361C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A49E85628B5572A0064361C /* ContentView.swift */; };
 		5A49E85928B5572B0064361C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A49E85828B5572B0064361C /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		5A1C703428D08DFF00FAC926 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		5A29C45E28B783B900C972B7 /* LabelIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelIconView.swift; sourceTree = "<group>"; };
 		5A2D561D28B56E6900DEF4B2 /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
+		5A456F282B7D5E65009D077A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A49E85128B5572A0064361C /* BAST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A49E85428B5572A0064361C /* BASTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BASTApp.swift; sourceTree = "<group>"; };
 		5A49E85628B5572A0064361C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 				5A29C45E28B783B900C972B7 /* LabelIconView.swift */,
 			);
 			path = "List Styles";
+			sourceTree = "<group>";
+		};
+		5A456F272B7D5E57009D077A /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				5A456F282B7D5E65009D077A /* SettingsView.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 		5A49E84828B5572A0064361C = {
@@ -164,6 +174,7 @@
 		5A49E86C28B558E00064361C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A456F272B7D5E57009D077A /* SettingsView */,
 				5AA952D728B77360001D2DC3 /* ContentView */,
 				5A15BE4928B7C74B0051A53D /* InstructionView */,
 				5AD6D3DA28B77C6E00F2A825 /* InformationView */,
@@ -227,7 +238,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					5A49E85028B5572A0064361C = {
 						CreatedOnToolsVersion = 14.0;
@@ -279,6 +290,7 @@
 				5AD6D3DE28B77CFA00F2A825 /* AppInformation.swift in Sources */,
 				5A1C703328D0896D00FAC926 /* TextLogger.swift in Sources */,
 				5A15BE4B28B7C76B0051A53D /* InstructionView.swift in Sources */,
+				5A456F292B7D5E65009D077A /* SettingsView.swift in Sources */,
 				5ACCC7E62916B1F900E33FC9 /* BatteryManaverV2.swift in Sources */,
 				5A88605E28BDF901001A9489 /* FAQListView.swift in Sources */,
 				5A29C45F28B783B900C972B7 /* LabelIconView.swift in Sources */,
@@ -306,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -367,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -427,7 +441,7 @@
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -447,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fezer.BAST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -469,7 +483,7 @@
 				CODE_SIGN_ENTITLEMENTS = BAST/BAST.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"BAST/Preview Content\"";
 				DEVELOPMENT_TEAM = 43J5JGL5JP;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fezer.BAST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

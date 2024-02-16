@@ -12,6 +12,7 @@ import SwiftUI
 class BatteryMangerV2
 {
     private let logger: TextLogger
+    private let expertMode: Bool
     
     public enum keys: String
     {
@@ -91,7 +92,7 @@ class BatteryMangerV2
         }
         
         // check if battery health is over 100% and return value
-        return (key == keys.capacity && ret > 100) ? 100 : ret
+        return (key == keys.capacity && !expertMode && ret > 100) ? 100 : ret
     }
     
     // Create View for List Entry
@@ -134,5 +135,6 @@ class BatteryMangerV2
     init(_ logger: TextLogger)
     {
         self.logger = logger
+        self.expertMode = UserDefaults.standard.bool(forKey: AppInformation.expertModeKey)
     }
 }

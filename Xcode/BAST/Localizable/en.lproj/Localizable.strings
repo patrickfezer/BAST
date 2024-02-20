@@ -51,7 +51,7 @@
 
 "importLogfileMsg" = "Import the logfile into the App using the Import Button on the top left site.";
 
-"expertModeMsg" = "Enable Expert Mode in settings for more detailed battery health insights (Optional).";
+"expertModeMsg" = "(Optional) Enable Expert Mode under Help > Settings for more detailed battery health insights.";
 
 "useFAQMsg" = "Please use the FAQ if you are facing any issues.";
 
@@ -103,7 +103,7 @@ Minimum Cap.: The minimum capacity the battery could theoretically have.";
 
 // MARK: Settings
 "expertModeButton" = "Expert Mode";
-"expertModeDesc" = "Activate Expert Mode to access additional details about your battery. These insights encompass more comprehensive information regarding battery health and extended capacity metrics.";
+"expertModeDesc" = "Enable Expert Mode to access additional details about your battery. These insights encompass more comprehensive information regarding battery health and extended capacity metrics.";
 "expertModeHeader" = "Expert Mode";
-"settings" = "Settigns";
+"settings" = "Settings";
 

@@ -255,13 +255,6 @@ struct ContentView: View {
                             // Set file to data
                             self.file = data
                             self.batteryValues = bm.getBatteryValues(file: data)
-                            
-                            // Check if a value is missing
-//                            if batteryValues[.capacity] == 0 || batteryValues[.cycleCount] == 0 || batteryValues[.NCC] == 0
-//                            {
-//                                missingValuesAlert = true
-//                                self.file = Data()
-//                            }
                         }
                         
                     } catch

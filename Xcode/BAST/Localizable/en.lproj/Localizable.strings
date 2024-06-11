@@ -60,7 +60,7 @@
 // MARK: FQA
 
 // Missing Values
-"missingValuesDesc" = "It can often happen that not all battery values are stored in the \"Analytics-YYYY-MM-DD\"-file. Especially with older devices, it can occur that some values are not logged. If values are missing, please try importing a different version of the \"Analytics-YYYY-MM-DD\"-file.";
+"missingValuesDesc" = "It can often happen that not all battery values are stored in the \"Analytics-YYYY-MM-DD\"-file. Especially with older devices, it can occur that some values are not logged. If values are missing, please try importing a different version of the \"Analytics-YYYY-MM-DD\"-file.\nMinimum and maximum battery capacity is not available on iPad.";
 
 "missingValuesHeader" = "Missing battery values (n/A)";
 

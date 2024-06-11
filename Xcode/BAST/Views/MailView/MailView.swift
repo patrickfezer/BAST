@@ -18,8 +18,7 @@ struct MailView: UIViewControllerRepresentable {
     let newSubject : String
     let newMsgBody : String
     let mailAddress: String
-
-
+    
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(presentation: presentation,

@@ -18,9 +18,9 @@ struct InstructionView: View {
                 InstructionEntrieView(step: "3", text: Text("analysisImprovement"), systemImage: "hand.raised.fill", backgroundColor: .blue, iconColor: .white)
                 InstructionEntrieView(step: "4", text: Text("analysisData"), systemImage: "hand.raised.fill", backgroundColor: .blue, iconColor: .white)
                 InstructionEntrieView(step: "5", text: Text("searchFileMsg"), systemImage: "square.and.arrow.up", backgroundColor: .orange, iconColor: .white)
-                InstructionEntrieView(step: "6", text: Text("importLogfileMsg"), systemImage: "square.and.arrow.down", backgroundColor: .green, iconColor: .white)
-                InstructionEntrieView(step: "7", text: Text("expertModeMsg"), systemImage: "exclamationmark.circle", backgroundColor: .red, iconColor: .white)
-                InstructionEntrieView(step: "8", text: Text("useFAQMsg"), systemImage: "questionmark.circle", backgroundColor: .red, iconColor: .white)
+//                InstructionEntrieView(step: "6", text: Text("importLogfileMsg"), systemImage: "square.and.arrow.down", backgroundColor: .green, iconColor: .white)
+                InstructionEntrieView(step: "6", text: Text("expertModeMsg"), systemImage: "exclamationmark.circle", backgroundColor: .red, iconColor: .white)
+                InstructionEntrieView(step: "7", text: Text("useFAQMsg"), systemImage: "questionmark.circle", backgroundColor: .red, iconColor: .white)
 
                 
             }

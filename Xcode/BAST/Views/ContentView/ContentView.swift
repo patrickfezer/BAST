@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var missingValuesAlert = false
     @State private var header = Text("headerUserGuide")
     @State private var result: Result<MFMailComposeResult, Error>? = nil
-    @State private var file = Data()
+    @ObservedObject public var fileManager: FileManager
     @State private var batteryValues = [BatteryMangerV2.keys : Int]()
     @AppStorage(AppInformation.expertModeKey) private var expertMode = false
     @EnvironmentObject var logger: TextLogger
@@ -38,7 +38,7 @@ struct ContentView: View {
         {
             Group
             {
-                if !file.isEmpty
+                if !fileManager.file.isEmpty
                 {
                     List
                     {
@@ -105,12 +105,12 @@ struct ContentView: View {
                         
                         Menu
                         {
-                            if !file.isEmpty
+                            if !fileManager.file.isEmpty
                             {
                                 // User Guide
                                 Button
                                 {
-                                    file = Data() // Clear File, User Guide will be called
+                                    fileManager.file = Data() // Clear File, User Guide will be called
                                     logger.log("Opened User Guide")
                                     logger.log("Cleared Data")
                                 } label: {
@@ -170,16 +170,18 @@ struct ContentView: View {
                 })
             
             // Return to user guide if expert mode is triggert
-                .onChange(of: expertMode, perform: { newValue in
-                    self.file = Data()
+            .onChange(of: expertMode, perform: { newValue in
+                    self.fileManager.file = Data()
                 })
             
             
             // Trigger file change to change heaader value
-            .onChange(of: file, perform: { newFileValue in
+            .onChange(of: fileManager.file, perform: { newFileValue in
                 if !newFileValue.isEmpty
                 {
                     header = Text("headerBatteryHealth")
+                    self.batteryValues = bm.getBatteryValues(file: newFileValue)
+                    print("updated")
                 } else
                 {
                     header = Text("headerUserGuide")
@@ -246,14 +248,14 @@ struct ContentView: View {
                         if selectedFile.pathExtension != "synced"
                         {
                             wrongFileAlert = true
-                            self.file = Data() // reset file
+                            self.fileManager.file = Data() // reset file
                             
                             // Log warning
                             logger.log("Wrong file extension. Extension is: \(selectedFile.pathExtension)")
                         } else
                         {
                             // Set file to data
-                            self.file = data
+                            self.fileManager.file = data
                             self.batteryValues = bm.getBatteryValues(file: data)
                         }
                         
@@ -270,7 +272,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(fileManager: FileManager())
             .previewDevice("iPhone 14 Pro")
             .preferredColorScheme(.dark)
             .environmentObject(TextLogger())

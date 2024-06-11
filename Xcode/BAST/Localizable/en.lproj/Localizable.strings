@@ -47,7 +47,7 @@
 
 "missingValuesMsg" = "The logfile does not contain all battery information.\nPlease try importing another version of \"Analytics-YYYY-MM-DD\"";
 
-"searchFileMsg" = "Search and open the latest logfile named \"Analytics-YYYY-MM-DD\".\nPlease export the logfile to the Files-App using the Share Button on the top right side.";
+"searchFileMsg" = "Search and open the latest logfile named \"Analytics-YYYY-MM-DD\".\nPress the share Button on the top right side an select \"BAST\".";
 
 "importLogfileMsg" = "Import the logfile into the App using the Import Button on the top left site.";
 
@@ -60,7 +60,7 @@
 // MARK: FQA
 
 // Missing Values
-"missingValuesDesc" = "It can often happen that not all battery values are stored in the \"Analytics-YYYY-MM-DD\"-file. Especially with older devices, it can occur that some values are not logged. If values are missing, please try importing a different version of the \"Analytics-YYYY-MM-DD\"-file.";
+"missingValuesDesc" = "It can often happen that not all battery values are stored in the \"Analytics-YYYY-MM-DD\"-file. Especially with older devices, it can occur that some values are not logged. If values are missing, please try importing a different version of the \"Analytics-YYYY-MM-DD\"-file.\nMinimum and maximum battery capacity is not available on iPad.";
 
 "missingValuesHeader" = "Missing battery values (n/A)";
 
